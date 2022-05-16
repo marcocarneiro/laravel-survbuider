@@ -21,6 +21,10 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>texto</b> - Texto da pergunta <br>
 <b>resposta_pai</b> - id da opção de resposta que deverá exibir a pergunta em questão, valor 0 indica pergunta independente de resposta do usuário <br>
 
+- <b>tabela opc_resposta</b> - Opções de resposta para as perguntas do tipo checkbox ou radio - campos: <br>
+<b>id_pergunta</b> - A qual pergunta pertence, <br>
+<b>texto</b> - Texto da resposta <br>
+
 - <b>tabela resultados</b> - Respostas dos participantes da pesquisa, esta tabela gera os relatórios e gráficos das pesquisas - campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
 <b>aceite</b> - Aceite do participante após a leitura da página inicial da pesquisa <br>
@@ -30,6 +34,9 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>data_hora_final</b> - Data e hora quando usuário finalizou a pesquisa <br>
 <b>dados</b> - Respostas do usuário no formato JSON <br>
 <b>completo</b> - Booleano, indica se o usuário finalizou a pesquisa ou não <br>
+
+- <b>tabela options</b> - Tabela de configuração da ferramenta e layout - campos: <br>
+<b>logo</b> - Imagem em formato de texto (base_64) do logotipo da instituição aplicadora da pesquisa, <br>
 
 
 ## About Laravel
