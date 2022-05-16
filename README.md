@@ -2,8 +2,16 @@
 Construtor de pesquisas com dashboard para criação, edição e visualização das pesquisas desenvolvido em Laravel / Livewire. <br>
 FRONT-END utilizando Tailwind.
 
+## Dicas
+
+
 ## Tabelas
-- tabela pesquisas - Armazena as pesquisas construídas - campos: titulo, slug, testes_inicio, testes_final, pesquisa_inicio, pesquisa_final, perguntas_por_tela
+- tabela pesquisas - Armazena as pesquisas construídas, campos: <br>
+<b>titulo</b> - Título da pesquisa, <br>
+slug - Nome curto da pesquisa, <br> 
+pesquisa_inicio - data e hora para início da pesquisa, <br>
+pesquisa_final - data e hora para o término da pesquisa, <br>
+perguntas_por_tela - Define quantas pereguntas serão exibidas a cada tela <br><br>
 - tabela perguntas - Armazena as perguntas de uma pesquisa - campos: <br>
 id_pesquisa - a qual pesquisa pertence, <br>
 tipo - tipo de pergunta com opções texto, checkbox, radio, textarea <br>
