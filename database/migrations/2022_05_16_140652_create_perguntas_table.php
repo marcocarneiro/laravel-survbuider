@@ -15,6 +15,12 @@ return new class extends Migration
     {
         Schema::create('perguntas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_pesquisa');
+            $table->foreign('id_pesquisa')->references('id')->on('pesquisas');
+            $table->tipo('string');
+            $table->texto('text');
+            $table->unsignedBigInteger('id_opc_resposta')->nullable()->default(NULL);
+            $table->foreign('id_opc_resposta')->references('id')->on('opc_respostas');
             $table->timestamps();
         });
     }
@@ -29,3 +35,4 @@ return new class extends Migration
         Schema::dropIfExists('perguntas');
     }
 };
+

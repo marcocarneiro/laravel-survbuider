@@ -19,7 +19,7 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
 <b>tipo</b> - Tipo de pergunta com opções text, number, checkbox, radio, textarea <br>
 <b>texto</b> - Texto da pergunta <br>
-<b>resposta_pai</b> - id da opção de resposta que deverá exibir a pergunta em questão, valor 0 indica pergunta independente de resposta do usuário <br>
+<b>id_opc_resposta</b> - id da opção de resposta que deverá exibir a pergunta em questão, valor 0 indica pergunta independente de resposta do usuário <br>
 
 - <b>tabela opc_resposta</b> - Opções de resposta para as perguntas do tipo checkbox ou radio - campos: <br>
 <b>id_pergunta</b> - A qual pergunta pertence, <br>

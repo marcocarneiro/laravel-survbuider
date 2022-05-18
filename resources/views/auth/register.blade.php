@@ -22,6 +22,7 @@
             <div class="mt-4">
                 <x-jet-label for="tipo" value="{{ __('Tipo de usuário') }}" />
                 <select id="tipo"  class="block mt-1 w-full" name="tipo" required>
+                    <option value="">Selecione</option>
                     <option value="administrador" >Administrador</option>
                     <option value="leitor" >Leitor</option>
                 </select>

@@ -15,6 +15,9 @@ return new class extends Migration
     {
         Schema::create('opc_respostas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('id_pergunta');
+            $table->foreign('id_pergunta')->references('id')->on('perguntas');
+            $table->texto('text');
             $table->timestamps();
         });
     }
@@ -29,3 +32,6 @@ return new class extends Migration
         Schema::dropIfExists('opc_respostas');
     }
 };
+
+/* <b>id_pergunta</b> - A qual pergunta pertence, <br>
+<b>texto</b> - Texto da resposta <br> */

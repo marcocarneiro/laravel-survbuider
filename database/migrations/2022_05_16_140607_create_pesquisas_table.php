@@ -15,6 +15,11 @@ return new class extends Migration
     {
         Schema::create('pesquisas', function (Blueprint $table) {
             $table->id();
+            $table->titulo('string');
+            $table->slug('string');
+            $table->timestamp('pesquisa_inicio', $precision = 0);
+            $table->timestamp('pesquisa_final', $precision = 0);            
+            $table->integer('perguntas_por_tela');
             $table->timestamps();
         });
     }
