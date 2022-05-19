@@ -37,6 +37,7 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 
 - <b>tabela options</b> - Tabela de configuração da ferramenta e layout - campos: <br>
 <b>logo</b> - Imagem em formato de texto (base_64) do logotipo da instituição aplicadora da pesquisa, <br>
+<b>nome</b> - Nome da empresa ou pessoa física <br>
 
 
 ## About Laravel

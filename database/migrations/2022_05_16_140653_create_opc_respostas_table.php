@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_pergunta');
             $table->foreign('id_pergunta')->references('id')->on('perguntas');
-            $table->texto('text');
+            $table->text('texto');
             $table->timestamps();
         });
     }

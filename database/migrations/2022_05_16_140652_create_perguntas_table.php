@@ -17,10 +17,9 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_pesquisa');
             $table->foreign('id_pesquisa')->references('id')->on('pesquisas');
-            $table->tipo('string');
-            $table->texto('text');
-            $table->unsignedBigInteger('id_opc_resposta')->nullable()->default(NULL);
-            $table->foreign('id_opc_resposta')->references('id')->on('opc_respostas');
+            $table->string('tipo');
+            $table->text('texto');
+            $table->integer('id_opc_resposta');
             $table->timestamps();
         });
     }
