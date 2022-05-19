@@ -31,6 +31,8 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
     /admin - Tela de Login para entrar no painel de administração
     /dashboard - (somente logado) Dashboard com acesso à construção/edição de pesquisas e relatórios
+    /list-surv - (somente logado) Lista de pesquisas cadastradas
+    /build-surv - (somente logado) Construção de uma pesquisa
 */
 Route::get('/admin', function () {
     return view('auth.login');
@@ -45,4 +47,10 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+    Route::get('/list-surv', function () {
+        return view('list-surv');
+    })->name('list-surv');
+    Route::get('/build-surv', function () {
+        return view('build-surv');
+    })->name('build-surv');
 });

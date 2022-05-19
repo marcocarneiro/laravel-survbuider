@@ -1,0 +1,1 @@
+Lista as pesquisas cadastradas
