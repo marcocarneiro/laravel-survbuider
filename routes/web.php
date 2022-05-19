@@ -13,9 +13,29 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+/*
+|--------------------------------------------------------------------------
+| Rotas para as telas de pesquisa
+|--------------------------------------------------------------------------
+    '/' - Carrega a tela principal, se existir pesquisa ativa mostra botão ENTRAR, caso contrário mostra  msg genérica
+
+*/
 Route::get('/', function () {
     return view('index');
 });
+
+
+/*
+|--------------------------------------------------------------------------
+| Rotas para as telas de administração
+|--------------------------------------------------------------------------
+    /admin - Tela de Login para entrar no painel de administração
+    /dashboard - (somente logado) Dashboard com acesso à construção/edição de pesquisas e relatórios
+*/
+Route::get('/admin', function () {
+    return view('auth.login');
+})->name('admin');
+
 
 Route::middleware([
     'auth:sanctum',
