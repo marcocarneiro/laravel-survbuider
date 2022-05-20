@@ -9,6 +9,7 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 - <b>tabela users</b> - Tabela padrão de usuários criada pelo Liviwire / Laravel<br>
 
 - <b>tabela pesquisas</b> - Armazena as pesquisas construídas, campos: <br>
+<b>user_id</b> - ID do usuário autor da pesquisa, <br>
 <b>titulo</b> - Título da pesquisa, <br>
 <b>slug</b> - Nome curto da pesquisa, <br> 
 <b>pesquisa_inicio</b> - data e hora para início da pesquisa, <br>

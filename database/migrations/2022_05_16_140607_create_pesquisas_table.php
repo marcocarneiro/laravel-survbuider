@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('pesquisas', function (Blueprint $table) {
             $table->id();
+            $table->unsignedBigInteger('user_id');
+            $table->foreign('user_id')->references('id')->on('users');
             $table->string('titulo');
             $table->string('slug');
             $table->timestamp('pesquisa_inicio')->nullable();

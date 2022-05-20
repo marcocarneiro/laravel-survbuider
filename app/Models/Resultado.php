@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Resultado extends Model
 {
     use HasFactory;
+
+    public function pesquisa()
+    {
+        return $this->belongsTo(Pesquisa::class);
+    }
+
 }
