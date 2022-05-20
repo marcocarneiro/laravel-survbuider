@@ -45,12 +45,12 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return view('dashboard');
+        return view('admin.dashboard');
     })->name('dashboard');
     Route::get('/list-surv', function () {
-        return view('list-surv');
+        return view('admin.list-surv');
     })->name('list-surv');
     Route::get('/build-surv', function () {
-        return view('build-surv');
+        return view('admin.build-surv');
     })->name('build-surv');
 });
