@@ -1,4 +1,4 @@
-@extends('base.app')
+@extends('admin.base')
 
 @section('title', 'BUILDER')
 
