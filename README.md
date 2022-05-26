@@ -2,11 +2,11 @@
 Construtor de pesquisas com dashboard para criação, edição e visualização das pesquisas desenvolvido em Laravel / Livewire. FRONT-END utilizando Tailwind.
 
 ## Recursos
-- <b>Edição</b> total edição das perguntas, pode-se modificar, remover, etc
-- <b>Imagem / Título</b> permite adicionar um ícone / logotipo para a pesquisa, independente do logo da empresa
-- <b>Duplicação</b> pode-se duplicar uma pesquisa para criar uma nova, as perguntas poderão ser modificadas a qualquer momento
-- <b>Filtros iniciais</b> uma resposta do usuário pode carregar perguntas específicas
-- <b>Visualização / Exportação</b> o resultado da pesquisa pode ser <b>visualizado e filtrado</b> em um dashboard e também pode-se exportar nos formatos PDF ou Excel
+- <b>Edição</b> - total edição das perguntas, pode-se modificar, remover, etc
+- <b>Imagem / Título</b> - permite adicionar um ícone / logotipo para a pesquisa, independente do logo da empresa
+- <b>Duplicação</b> - pode-se duplicar uma pesquisa para criar uma nova, as perguntas poderão ser modificadas a qualquer momento
+- <b>Filtros iniciais</b> - uma resposta do usuário pode carregar perguntas específicas
+- <b>Visualização / Exportação</b> - o resultado da pesquisa pode ser <b>visualizado e filtrado</b> em um dashboard e também pode-se exportar nos formatos PDF ou Excel
 
 ## Dicas
 - Antes de utilizar, pode-se criar uma pesquisa de teste apenas para verificar o funcionamento da ferramenta
