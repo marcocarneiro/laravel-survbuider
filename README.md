@@ -1,6 +1,13 @@
 # Livewire Survbuilder
 Construtor de pesquisas com dashboard para criação, edição e visualização das pesquisas desenvolvido em Laravel / Livewire. FRONT-END utilizando Tailwind.
 
+## Recursos
+- <b>Edição</b> total edição das perguntas, pode-se modificar, remover, etc
+- <b>Imagem / Título</b> permite adicionar um ícone / logotipo para a pesquisa, independente do logo da empresa
+- <b>Duplicação</b> pode-se duplicar uma pesquisa para criar uma nova, as perguntas poderão ser modificadas a qualquer momento
+- <b>Filtros iniciais</b> uma resposta do usuário pode carregar perguntas específicas
+- <b>Visualização / Exportação</b> o resultado da pesquisa pode ser <b>visualizado e filtrado</b> em um dashboard e também pode-se exportar nos formatos PDF ou Excel
+
 ## Dicas
 - Antes de utilizar, pode-se criar uma pesquisa de teste apenas para verificar o funcionamento da ferramenta
 - Tipos de usuário: <b>Administrador</b> que pode criar e editar pesquisas / <b>Leitor</b> que pode apenas visualizar os resultados
@@ -14,10 +21,15 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>slug</b> - Nome curto da pesquisa, <br> 
 <b>pesquisa_inicio</b> - data e hora para início da pesquisa, <br>
 <b>pesquisa_final</b> - data e hora para o término da pesquisa, <br>
-<b>perguntas_por_tela</b> - Define quantas pereguntas serão exibidas a cada tela <br>
+<b>perguntas_por_tela</b> - Define quantas perguntas serão exibidas a cada tela <br>
+
+- <b>tabela filtros</b> - Adiciona questões iniciais do tipo radio para definir e carregar um grupo de questões, campos: <br>
+<b>id_pesquisa</b> - A qual pesquisa pertence, <br>
+<b>texto</b> - Texto da pergunta <br>
 
 - <b>tabela perguntas</b> - Armazena as perguntas de uma pesquisa - campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
+<b>grupo</b> - ID do filtro escolhido nas questões iniciais se o recurso foi utilizado, caso contrário grava NULL <br>
 <b>tipo</b> - Tipo de pergunta com opções text, number, checkbox, radio, textarea <br>
 <b>texto</b> - Texto da pergunta <br>
 <b>id_opc_resposta</b> - id da opção de resposta que deverá exibir a pergunta em questão, valor 0 indica pergunta independente de resposta do usuário <br>
