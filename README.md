@@ -7,6 +7,7 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 - <b>Duplicação</b> - pode-se duplicar uma pesquisa para criar uma nova, as perguntas poderão ser modificadas a qualquer momento
 - <b>Filtros iniciais</b> - uma resposta do usuário pode carregar perguntas específicas
 - <b>Visualização / Exportação</b> - o resultado da pesquisa pode ser <b>visualizado e filtrado</b> em um dashboard e também pode-se exportar nos formatos PDF ou Excel
+- <b>Consentimento</b> - só carrega a pesquisa se o usuário clicou no botão "consentir"
 
 ## Dicas
 - Antes de utilizar, pode-se criar uma pesquisa de teste apenas para verificar o funcionamento da ferramenta
@@ -22,8 +23,10 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>pesquisa_inicio</b> - data e hora para início da pesquisa, <br>
 <b>pesquisa_final</b> - data e hora para o término da pesquisa, <br>
 <b>perguntas_por_tela</b> - Define quantas perguntas serão exibidas a cada tela <br>
+<b>consentimento</b> - Booleano, define se a pesquisa terá consentimento ou não <br>
+<b>txt_consentimento</b> - Conteúdo Rich Text para a página de consentimento <br>
 
-- <b>tabela filtros</b> - Adiciona questões iniciais do tipo radio para definir e carregar um grupo de questões, campos: <br>
+- <b>tabela filtros</b> - Adiciona questões iniciais do <b>tipo radio</b> para definir e carregar um grupo de questões, campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
 <b>texto</b> - Texto da pergunta <br>
 
