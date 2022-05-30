@@ -24,5 +24,13 @@ class Pesquisa extends Model
         return $this->hasMany(Resultado::class);
     }
 
+    public function consentimento()
+    {
+        return $this->hasMany(Consentimento::class);
+    }
+    public function filtro()
+    {
+        return $this->hasMany(Filtro::class);
+    }
 
 }

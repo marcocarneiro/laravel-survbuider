@@ -13,15 +13,11 @@ return new class extends Migration
      */
     public function up()
     {
-        Schema::create('perguntas', function (Blueprint $table) {
+        Schema::create('consentimentos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('id_pesquisa');
             $table->foreign('id_pesquisa')->references('id')->on('pesquisas');
-            $table->unsignedBigInteger('id_grupo')->nullable();
-            $table->foreign('id_grupo')->references('id')->on('filtros');
-            $table->string('tipo');
-            $table->text('texto');
-            $table->integer('id_opc_resposta');
+            $table->text('txt_consentimento');
             $table->timestamps();
         });
     }
@@ -33,7 +29,6 @@ return new class extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('perguntas');
+        Schema::dropIfExists('consentimentos');
     }
 };
-

@@ -24,15 +24,21 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>pesquisa_final</b> - data e hora para o término da pesquisa, <br>
 <b>perguntas_por_tela</b> - Define quantas perguntas serão exibidas a cada tela <br>
 <b>consentimento</b> - Booleano, define se a pesquisa terá consentimento ou não <br>
+
+
+- <b>tabela consentimentos</b> - Adiciona uma ou mais telas de consentimento, se a pesquisa na tabela de pesquisas tiver essa sinalização, campos: <br>
+<b>id_pesquisa</b> - A qual pesquisa pertence, <br>
 <b>txt_consentimento</b> - Conteúdo Rich Text para a página de consentimento <br>
 
-- <b>tabela filtros</b> - Adiciona questões iniciais do <b>tipo radio</b> para definir e carregar um grupo de questões, campos: <br>
+- <b>tabela filtros</b> - Adiciona questões iniciais do <b>tipo radio</b> para definir e carregar um grupo de questões, exemplo:<br>
+Um campo radio para informar o sexo do participante, se for feminino, carrega um grupo de questões, e se for de outro sexo, carrega outro grupo <br>
+campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
 <b>texto</b> - Texto da pergunta <br>
 
 - <b>tabela perguntas</b> - Armazena as perguntas de uma pesquisa - campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
-<b>grupo</b> - ID do filtro escolhido nas questões iniciais se o recurso foi utilizado, caso contrário grava NULL <br>
+<b>id_grupo</b> - ID do filtro escolhido nas questões iniciais se o recurso foi utilizado, caso contrário grava NULL <br>
 <b>tipo</b> - Tipo de pergunta com opções text, number, checkbox, radio, textarea <br>
 <b>texto</b> - Texto da pergunta <br>
 <b>id_opc_resposta</b> - id da opção de resposta que deverá exibir a pergunta em questão, valor 0 indica pergunta independente de resposta do usuário <br>
