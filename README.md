@@ -62,6 +62,9 @@ campos: <br>
 <b>nome</b> - Nome da empresa ou pessoa física <br>
 
 
+## Componentes
+- <b>CriarPesquisa.php</b> - Carrega formulário para a criação de uma nova pesquisa. 
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
