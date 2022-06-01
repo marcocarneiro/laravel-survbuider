@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -53,4 +54,7 @@ Route::middleware([
     Route::get('/build-surv', function () {
         return view('admin.build-surv');
     })->name('build-surv');
+    Route::get('/criar-pesquisa', function () {
+        return view('admin.criar-pesquisa');
+    })->name('criar-pesquisa');
 });

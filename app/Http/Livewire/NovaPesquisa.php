@@ -4,10 +4,10 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 
-class CriarPesquisa extends Component
+class NovaPesquisa extends Component
 {
     public function render()
     {
-        return view('livewire.criar-pesquisa');
+        return view('livewire.nova-pesquisa');
     }
 }
