@@ -1,4 +1,4 @@
-<div class="sm:w-full w-4/5 p-10 bg-slate-100">
+<div class="w-5/6 p-10 bg-slate-100">
     <form>
         <div class="grid xl:grid-cols-1 xl:gap-6">
           <div class="relative z-0 w-full mb-6 group">

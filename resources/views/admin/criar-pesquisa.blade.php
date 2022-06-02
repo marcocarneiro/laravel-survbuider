@@ -1,10 +1,12 @@
 @extends('admin.base')
 
-@section('title', 'DASHBOARD')
+@section('title', 'NOVA PESQUISA')
 
 @section('conteudo')
 
-<div class="md:grid grid-cols-1 gap-4 mb-10">
+<h1 class="font-bold text-xl text-white text-center">Nova Pesquisa</h1>
+
+<div class="flex justify-center">
     <livewire:nova-pesquisa>
 </div>    
 
