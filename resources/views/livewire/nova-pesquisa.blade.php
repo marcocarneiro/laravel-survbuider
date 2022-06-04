@@ -37,17 +37,20 @@
                 peer-focus:scale-75 peer-focus:-translate-y-6">Perguntas por tela</label>
             </div>
             <div class="relative z-0 w-full mb-6 group pt-6">
-                <label for="consentimento" class="text-slate-700">Inclui consentimento?</label>
-                <input id="consentimento" type="checkbox" name="consentimento" value="sim" wire:click="show_consent"/>
+                <label for="consentimento" class="text-slate-700">Inclui consentimento? </label>
+                <input id="consentimento" type="checkbox" name="consentimento" value="sim" 
+                wire:click="show_consent"/>
             </div>
         </div>
-
         
-        @if($consent)
+        
+        @if($consent)        
         <div class="grid xl:grid-cols-1 xl:gap-6">
-            <textarea name="tinymce-editor" id="tinymce-editor" cols="30" rows="10"></textarea>
+            <p>Digite o termo de consentimento para a pesquisa:</p>
+            <textarea name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" 
+            rows="10"></textarea>
         </div>
-        
+        <script>loadTinyMCEEditor('txt_consentimento')</script>
         @endif
        
 

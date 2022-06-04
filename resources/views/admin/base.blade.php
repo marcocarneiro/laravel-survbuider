@@ -20,11 +20,32 @@
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
         <script src="{{ mix('js/app.js') }}" defer></script>
 
+        <!-- TinyMCE  -->
+        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
+        <script>
+          function loadTinyMCEEditor(id) {
+            tinymce.init({
+              selector: "#"+id,
+              height: 500,
+              plugins: [
+                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                'insertdatetime', 'media', 'table', 'help', 'wordcount'
+              ],
+              toolbar: 'undo redo | blocks | ' +
+              'bold italic backcolor | alignleft aligncenter ' +
+              'alignright alignjustify | bullist numlist outdent indent | ' +
+              'removeformat | help',
+              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
+            });
+          }          
+        </script>
+
     </head>
-    <body class="max-h-screen font-sans antialiased bg-slate-300 text-gray-200">
+    <body class="max-h-screen font-sans antialiased bg-slate-300 text-slate-700">
 
         {{-- Navbar --}}
-        <nav class="bg-slate-500 fixed text-slate-200 px-2 sm:px-4 py-2.5 w-full drop-shadow-md">
+        <nav class="bg-slate-500 fixed text-slate-200 px-2 sm:px-4 py-2.5 w-full drop-shadow-md z-50">
             <div class="container flex flex-wrap justify-between items-center mx-auto">
             <a href="#" class="flex items-center">
                 <span class="self-center text-xl font-semibold whitespace-nowrap dark:text-white">SurvBuilder</span>
@@ -117,16 +138,6 @@
 
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
-
-        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-
-        <script>
-          tinymce.init({
-            selector: '#tinymce-editor', // Replace this CSS selector to match the placeholder element for TinyMCE
-            plugins: 'code table lists',
-            toolbar: 'undo redo | blocks | bold italic | alignleft aligncenter alignright | indent outdent | bullist numlist | code | table'
-          });
-        </script>
         
     </body>
 </html>
