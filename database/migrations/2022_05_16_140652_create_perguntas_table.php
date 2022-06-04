@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('tipo');
             $table->text('texto');
             $table->integer('id_opc_resposta');
+            $table->string('midia')->nullable();
             $table->timestamps();
         });
     }

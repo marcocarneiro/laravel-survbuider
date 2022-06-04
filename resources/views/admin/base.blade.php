@@ -24,6 +24,7 @@
         <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
         <script>
           function loadTinyMCEEditor(id) {
+            tinymce.remove('#'+id);
             tinymce.init({
               selector: "#"+id,
               height: 500,

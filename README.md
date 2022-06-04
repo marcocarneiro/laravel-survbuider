@@ -8,6 +8,7 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 - <b>Filtros iniciais</b> - uma resposta do usuário pode carregar perguntas específicas
 - <b>Visualização / Exportação</b> - o resultado da pesquisa pode ser <b>visualizado e filtrado</b> em um dashboard e também pode-se exportar nos formatos PDF ou Excel
 - <b>Consentimento</b> - só carrega a pesquisa se o usuário clicou no botão "consentir"
+- <b>Adição de mídia</b> - permite adição de imagem ou vídeo para ilustrar a pergunta
 
 ## Dicas
 - Antes de utilizar, pode-se criar uma pesquisa de teste apenas para verificar o funcionamento da ferramenta
@@ -42,6 +43,7 @@ campos: <br>
 <b>tipo</b> - Tipo de pergunta com opções text, number, checkbox, radio, textarea <br>
 <b>texto</b> - Texto da pergunta <br>
 <b>id_opc_resposta</b> - id da opção de resposta que deverá exibir a pergunta em questão, valor 0 indica pergunta independente de resposta do usuário <br>
+<b>midia</b> - (opcional) arquivo de imagem ou vídeo para acompanhar uma pergunta <br>
 
 - <b>tabela opc_resposta</b> - Opções de resposta para as perguntas do tipo checkbox ou radio - campos: <br>
 <b>id_pergunta</b> - A qual pergunta pertence, <br>
