@@ -37,7 +37,7 @@
                 peer-focus:scale-75 peer-focus:-translate-y-6">Perguntas por tela</label>
             </div>
             <div class="relative z-0 w-full mb-6 group pt-6">
-                <label for="consentimento" class="text-slate-700">Inclui consentimento? </label>
+                <label for="consentimento" class="text-slate-700 pr-4">Inclui consentimento? </label>
                 <input id="consentimento" type="checkbox" name="consentimento" value="sim" 
                 wire:click="show_consent"/>
             </div>
@@ -52,15 +52,34 @@
         </div>
         <script>loadTinyMCEEditor('txt_consentimento')</script>
         @endif
-       
-        <hr>
         
-        <p>Adicionar perguntas
-            <svg class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-        </p>
-        <div id="perguntas">
+       <!-- VER: https://laravel-livewire.com/docs/2.x/nesting-components -->
+        <div class="p-6 mb-8 border border-slate-500">
+            <div id="perguntas">
 
+            </div>
+            <p>Adicionar perguntas
+                <svg class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+            </p>
         </div>
+        
+        
+
+        <div class="p-6 mb-8 border border-slate-500">
+            <div class="grid xl:grid-cols-1 xl:gap-6">
+                <div class="relative z-0 w-full mb-6 group">
+                    <p>Adicionar um filtro para agrupar perguntas
+                        <svg class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
+                    </p>
+                    <small>Ao adicionar um filtro, você cria um grupo de perguntas que o participante responderá caso 
+                        atenda a um pré-requisito como por exemplo, idade, se a idade do usuário for maior que 18, 
+                        será carregado um grupo de perguntas específicas.
+                    </small>
+                </div>
+            </div>
+        </div>
+        
+
 
         <br>
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
