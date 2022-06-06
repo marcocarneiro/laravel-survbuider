@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_pesquisa');
             $table->foreign('id_pesquisa')->references('id')->on('pesquisas');            
-            $table->string('texto');
+            $table->string('txt_filtro');
             $table->timestamps();
         });
     }

@@ -20,7 +20,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_grupo')->nullable();
             $table->foreign('id_grupo')->references('id')->on('filtros');
             $table->string('tipo');
-            $table->text('texto');
+            $table->text('txt_pergunta');
             $table->integer('id_opc_resposta');
             $table->string('midia')->nullable();
             $table->timestamps();
