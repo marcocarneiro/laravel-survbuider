@@ -37,7 +37,7 @@
                 peer-focus:scale-75 peer-focus:-translate-y-6">Perguntas por tela</label>
             </div>
             <div class="relative z-0 w-full mb-6 group pt-6">
-                <label for="consentimento" class="text-slate-700 pr-4">Inclui consentimento? </label>
+                <label for="consentimento" class="text-slate-700 pr-4">Inclui termo de consentimento? </label>
                 <input id="consentimento" type="checkbox" name="consentimento" value="sim" 
                 wire:click="show_consent"/>
             </div>
@@ -78,16 +78,28 @@
             </div>
         </div>
 
-        <div class="p-6 mt-8 mb-8 border border-gray-300">
+        <fieldset class="p-6 mt-8 mb-8 border border-gray-300">
+            <legend class="px-4">
+                Adicionar perguntas padrão da pesquisa
+                <svg onClick="addPerguntas()" class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                </svg>
+            </legend>
             <div id="perguntas">
+                <div class="pergunta mt-6">
+                    <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Escolha o tipo de pergunta</label>
+                    <select name="tipo" onChange="setPergunta(this.value)" class="tipo bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                        <option value="">Selecione</option> 
+                        <option value="text">Texto</option>
+                        <option value="number">Número</option>
+                        <option value="checkbox">Múltipla escolha</option>
+                        <option value="radio">Radio</option>
+                    </select>
+                </div>
 
             </div>
-            <p>Adicionar perguntas padrão da pesquisa
-                <svg class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-            </p>
-        </div>
-        
-
+        </fieldset>
 
         <br>
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 

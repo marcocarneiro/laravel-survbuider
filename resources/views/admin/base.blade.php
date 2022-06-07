@@ -139,6 +139,19 @@
 
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
-        
+        <script>
+          
+          var addPerguntas = () => {
+            const pergunta = document.getElementById('perguntas').lastElementChild;
+            const novaPergunta = pergunta.cloneNode(true);
+
+            document.getElementById('perguntas').appendChild(novaPergunta);
+          };
+          
+          var setPergunta = (tipo) =>{
+            alert('configura pergunta: ' + tipo);
+          }
+
+        </script>        
     </body>
 </html>
