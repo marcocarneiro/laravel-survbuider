@@ -142,11 +142,10 @@
         <script>
           
           var addPerguntas = () => {
-            /* const pergunta = document.getElementById('perguntas').lastElementChild;
+            const pergunta = document.getElementById('perguntas').lastElementChild;
             const novaPergunta = pergunta.cloneNode(true);
 
-            document.getElementById('perguntas').appendChild(novaPergunta); */
-            Livewire.emit('NovaPergunta');
+            document.getElementById('perguntas').appendChild(novaPergunta);
           };
           
           var setPergunta = (tipo, obj) =>{
