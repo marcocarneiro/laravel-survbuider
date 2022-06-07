@@ -142,14 +142,18 @@
         <script>
           
           var addPerguntas = () => {
-            const pergunta = document.getElementById('perguntas').lastElementChild;
+            /* const pergunta = document.getElementById('perguntas').lastElementChild;
             const novaPergunta = pergunta.cloneNode(true);
 
-            document.getElementById('perguntas').appendChild(novaPergunta);
+            document.getElementById('perguntas').appendChild(novaPergunta); */
+            Livewire.emit('NovaPergunta');
           };
           
-          var setPergunta = (tipo) =>{
-            alert('configura pergunta: ' + tipo);
+          var setPergunta = (tipo, obj) =>{
+            var p = document.createElement('p');
+            var txt_paragrafo = document.createTextNode('Novo parágrafo');
+            p.appendChild(txt_paragrafo); //adiciona o nó de texto à nova div criada
+            obj.appendChild(p);
           }
 
         </script>        
