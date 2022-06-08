@@ -86,7 +86,7 @@
                 </svg>
             </legend>
             <div id="perguntas">
-                <div class="pergunta mt-6">
+                <div class="pergunta mt-6 pb-6 border-b border-gray-800">
                     <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Escolha o tipo de pergunta</label>
                     <div class="flex">                        
                         <select name="tipo" onChange="setPergunta(this.value)" class="tipo rounded-none rounded-l-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
@@ -97,7 +97,7 @@
                             <option value="checkbox">Múltipla escolha</option>
                             <option value="radio">Radio</option>
                         </select>
-                        <span class="inline-flex items-center px-3 text-sm text-red-700 bg-red-300 border border-l-0 border-gray-300 rounded-r-md">
+                        <span onClick="removePergunta(this.parentNode.parentNode)" class="inline-flex items-center px-3 text-sm text-red-700 bg-red-300 border border-l-0 border-gray-300 rounded-r-md">
                             <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
                             </svg>

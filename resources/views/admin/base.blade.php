@@ -147,6 +147,11 @@
 
             document.getElementById('perguntas').appendChild(novaPergunta);
           };
+
+          var removePergunta = (obj) => {
+            let contObjs = document.querySelectorAll('.pergunta').length;
+            if(contObjs > 1){ obj.remove() }            
+          };
           
           var setPergunta = (tipo) =>{
             alert('configura pergunta: ' + tipo);
