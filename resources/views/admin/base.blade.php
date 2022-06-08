@@ -148,11 +148,8 @@
             document.getElementById('perguntas').appendChild(novaPergunta);
           };
           
-          var setPergunta = (tipo, obj) =>{
-            var p = document.createElement('p');
-            var txt_paragrafo = document.createTextNode('Novo parágrafo');
-            p.appendChild(txt_paragrafo); //adiciona o nó de texto à nova div criada
-            obj.appendChild(p);
+          var setPergunta = (tipo) =>{
+            alert('configura pergunta: ' + tipo);
           }
 
         </script>        
