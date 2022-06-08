@@ -78,7 +78,7 @@
             </div>
         </div>
 
-        <fieldset class="p-6 mt-8 mb-8 border border-gray-300">
+        <fieldset class="p-6 mt-8 mb-8 border border-gray-300">            
             <legend class="px-4">
                 Adicionar perguntas padrão da pesquisa
                 <svg onClick="addPerguntas()" class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
@@ -88,18 +88,25 @@
             <div id="perguntas">
                 <div class="pergunta mt-6">
                     <label for="tipo" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400">Escolha o tipo de pergunta</label>
-                    <select name="tipo" onChange="setPergunta(this.value)" class="tipo bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                    dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                        <option value="">Selecione</option> 
-                        <option value="text">Texto</option>
-                        <option value="number">Número</option>
-                        <option value="checkbox">Múltipla escolha</option>
-                        <option value="radio">Radio</option>
-                    </select>
+                    <div class="flex">                        
+                        <select name="tipo" onChange="setPergunta(this.value)" class="tipo rounded-none rounded-l-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
+                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                            <option value="">Selecione</option> 
+                            <option value="text">Texto</option>
+                            <option value="number">Número</option>
+                            <option value="checkbox">Múltipla escolha</option>
+                            <option value="radio">Radio</option>
+                        </select>
+                        <span class="inline-flex items-center px-3 text-sm text-red-700 bg-red-300 border border-l-0 border-gray-300 rounded-r-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            </svg>
+                        </span>
+                    </div>
                 </div>
-
-            </div>
-        </fieldset>
+            </div> 
+        </fieldset>        
+        
 
         <br>
         <button type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 
