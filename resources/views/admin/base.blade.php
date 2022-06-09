@@ -147,6 +147,7 @@
           
           var addPerguntas = () => {
             numQuest ++;
+            const perguntas = document.getElementById('perguntas');
             const pergunta = document.getElementById('perguntas').lastElementChild;
             const novaPergunta = pergunta.cloneNode(true);
             novaPergunta.querySelector('.num').innerText = numQuest;
@@ -163,6 +164,11 @@
           var setPergunta = (tipo) =>{
             alert('configura pergunta: ' + tipo);
           }
+
+          new Sortable(perguntas, {
+              handle: '.mover', // handle's class
+              animation: 150
+          });
 
         </script>        
     </body>
