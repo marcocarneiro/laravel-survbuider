@@ -139,18 +139,25 @@
 
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
+          var numQuest = 1;
+          var contPerguntas = document.querySelectorAll('.pergunta').length;
+          document.querySelector('.pergunta:nth-child(1) .num').innerText = numQuest;
           
           var addPerguntas = () => {
+            numQuest ++;
             const pergunta = document.getElementById('perguntas').lastElementChild;
             const novaPergunta = pergunta.cloneNode(true);
-
+            novaPergunta.querySelector('.num').innerText = numQuest;
             document.getElementById('perguntas').appendChild(novaPergunta);
           };
 
           var removePergunta = (obj) => {
-            let contObjs = document.querySelectorAll('.pergunta').length;
-            if(contObjs > 1){ obj.remove() }            
+            if(numQuest > 1){ 
+              numQuest -- ;
+              obj.remove() 
+            }            
           };
           
           var setPergunta = (tipo) =>{
