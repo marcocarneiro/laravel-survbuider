@@ -162,8 +162,16 @@
             }            
           };
           
-          var setPergunta = (tipo) =>{
-            //alert('configura pergunta: ' + tipo);
+          var setPergunta = (el, tipo) =>{
+            let container = el.querySelector('.pergunta-details')
+            if(tipo == 'checkbox' || tipo == 'radio'){
+              container.innerHTML = loadOpcoesResposta()
+            }
+          }
+
+          var loadOpcoesResposta = () =>{
+            let component = `<p>Opções de resposta</p>`
+            return component
           }
 
           var reorderPerguntas = () =>{
