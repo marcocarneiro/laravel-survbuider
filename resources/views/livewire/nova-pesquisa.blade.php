@@ -91,9 +91,9 @@
                         Questão <span class="num"></span>: Escolha o tipo de pergunta
                     </label>
                     <div class="flex">
-                        <svg class="mover inline-flex items-center h-8 w-8 cursor-move" xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                        <svg class="mover inline-flex items-center h-6 w-6 mt-2 cursor-pointer text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
-                        </svg>                      
+                        </svg>                  
                         <select name="tipo" onChange="setPergunta(this.value)" class="tipo rounded-none rounded-l-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
                         dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
                             <option value="">Selecione</option> 

@@ -133,7 +133,6 @@
 
         <div class="w-full h-full p-10 pt-24">
             @yield('conteudo')
-
         </div>
         
 
@@ -141,34 +140,48 @@
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
-          var numQuest = 1;
-          var contPerguntas = document.querySelectorAll('.pergunta').length;
-          document.querySelector('.pergunta:nth-child(1) .num').innerText = numQuest;
-          
+          var numQuest = 1
+          var contPerguntas = document.querySelectorAll('.pergunta').length
+          var divPerguntas = document.getElementById('perguntas')
+          document.querySelector('.pergunta:nth-child(1) .num').innerText = numQuest
+
+
           var addPerguntas = () => {
-            numQuest ++;
-            const perguntas = document.getElementById('perguntas');
-            const pergunta = document.getElementById('perguntas').lastElementChild;
-            const novaPergunta = pergunta.cloneNode(true);
-            novaPergunta.querySelector('.num').innerText = numQuest;
-            document.getElementById('perguntas').appendChild(novaPergunta);
+            numQuest ++           
+            let pergunta = document.getElementById('perguntas').lastElementChild
+            let novaPergunta = pergunta.cloneNode(true)
+            novaPergunta.querySelector('.num').innerText = numQuest
+            document.getElementById('perguntas').appendChild(novaPergunta)
           };
 
           var removePergunta = (obj) => {
             if(numQuest > 1){ 
               numQuest -- ;
-              obj.remove() 
+              obj.remove()
+              reorderPerguntas()
             }            
           };
           
           var setPergunta = (tipo) =>{
-            alert('configura pergunta: ' + tipo);
+            //alert('configura pergunta: ' + tipo);
           }
 
-          new Sortable(perguntas, {
-              handle: '.mover', // handle's class
-              animation: 150
+          var reorderPerguntas = () =>{
+            let cont = document.querySelectorAll('.pergunta').length
+            for (let i = 1; i <= cont; i++) {
+              document.querySelector(`.pergunta:nth-child(${i}) .num`).innerText = i                 
+            }
+          }
+
+          new Sortable(divPerguntas, {
+              handle: '.mover', 
+              animation: 150,
+              onUpdate: function (evt) {
+                reorderPerguntas()
+              }
           });
+
+          
 
         </script>        
     </body>
