@@ -47,7 +47,7 @@ campos: <br>
 
 - <b>tabela opc_resposta</b> - Opções de resposta para as perguntas do tipo checkbox ou radio - campos: <br>
 <b>id_pergunta</b> - A qual pergunta pertence, <br>
-<b>texto</b> - Texto da resposta <br>
+<b>txt_opc_resposta</b> - Texto da resposta <br>
 
 - <b>tabela resultados</b> - Respostas dos participantes da pesquisa, esta tabela gera os relatórios e gráficos das pesquisas - campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>

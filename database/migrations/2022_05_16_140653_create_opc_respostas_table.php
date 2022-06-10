@@ -17,7 +17,7 @@ return new class extends Migration
             $table->id();
             $table->unsignedBigInteger('id_pergunta');
             $table->foreign('id_pergunta')->references('id')->on('perguntas');
-            $table->text('texto');
+            $table->text('txt_opc_resposta');
             $table->timestamps();
         });
     }
@@ -33,5 +33,4 @@ return new class extends Migration
     }
 };
 
-/* <b>id_pergunta</b> - A qual pergunta pertence, <br>
-<b>texto</b> - Texto da resposta <br> */
+

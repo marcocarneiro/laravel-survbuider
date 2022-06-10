@@ -146,12 +146,14 @@
           document.querySelector('.pergunta:nth-child(1) .num').innerText = numQuest
 
 
+          //perguntas
           var addPerguntas = () => {
             numQuest ++           
             let pergunta = document.getElementById('perguntas').lastElementChild
             let novaPergunta = pergunta.cloneNode(true)
+            novaPergunta.querySelector('.resposta-details').classList.add('hidden')
             novaPergunta.querySelector('.num').innerText = numQuest
-            document.getElementById('perguntas').appendChild(novaPergunta)
+            document.getElementById('perguntas').appendChild(novaPergunta)            
           };
 
           var removePergunta = (obj) => {
@@ -163,15 +165,11 @@
           };
           
           var setPergunta = (el, tipo) =>{
-            let container = el.querySelector('.pergunta-details')
+            let container = el.nextElementSibling
+            container.classList.add('hidden')
             if(tipo == 'checkbox' || tipo == 'radio'){
-              container.innerHTML = loadOpcoesResposta()
+              container.classList.remove('hidden')
             }
-          }
-
-          var loadOpcoesResposta = () =>{
-            let component = `<p>Opções de resposta</p>`
-            return component
           }
 
           var reorderPerguntas = () =>{
@@ -189,6 +187,22 @@
               }
           });
 
+
+
+          //Opções de resposta
+          var addOpcRespostas = (obj) => {
+            let lastOpc = obj.lastElementChild
+            let novaOpc = lastOpc.cloneNode(true)
+            obj.appendChild(novaOpc)      
+          }
+
+          var removeOpcResposta = (obj) => {
+            let fieldSet = obj.parentNode
+            let count = fieldSet.querySelectorAll('.opc-resposta').length
+            if(count > 1){
+              obj.remove()
+            }
+          }
           
 
         </script>        
