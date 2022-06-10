@@ -86,41 +86,38 @@
                 </svg>
             </legend>
             <div id="perguntas">
-                <div class="pergunta mt-6 pb-6 border-b border-gray-300">
+                <div class="pergunta relative mt-6 pb-8 border-b border-gray-300">
                     <div class="flex">
                         <svg class="mover inline-flex items-center mt-1 h-5 w-5 cursor-pointer text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                         </svg>
                         <label for="txt_pergunta" class="block mt-1 text-sm font-medium text-gray-900 dark:text-gray-400">
                             Questão <span class="num"></span>
-                        </label>
-                        <span onClick="removePergunta(this.parentNode.parentNode)" class="inline-flex items-center px-3 text-sm text-red-700">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg> Remover
-                        </span>                        
+                        </label>                   
                     </div>
-                    <input type="text" name="txt_pergunta" class="block py-2.5 mb-6 px-0 w-full text-sm text-gray-900 bg-transparent border-0 
-                        border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 
-                        focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder="Digite aqui o texto da pergunta" required />                  
-                    <div class="flex">                                          
-                        <select name="tipo" onChange="setPergunta(this.parentNode.parentNode, this.value)" class="tipo rounded-none rounded-l-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 
-                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                            <option value="">Selecione aqui o tipo de resposta</option> 
-                            <option value="text">Texto</option>
-                            <option value="number">Número</option>
-                            <option value="checkbox">Múltipla escolha</option>
-                            <option value="radio">Radio</option>
+                    <div class="flex gap-2 mb-6">
+                        <textarea name="txt_pergunta" rows="4" class="block p-2.5 w-1/2 text-sm text-gray-900 bg-gray-50 rounded-lg border
+                        border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
+                        dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
+                        placeholder="Digite aqui o texto da pergunta"></textarea>
+
+                        <select name="tipo" onChange="setPergunta(this.parentNode.parentNode, this.value)" class="tipo w-1/2 h-32 rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 
+                            dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
+                                <option value="">Selecione aqui o tipo de resposta</option> 
+                                <option value="text">Texto</option>
+                                <option value="number">Número</option>
+                                <option value="checkbox">Múltipla escolha</option>
+                                <option value="radio">Radio</option>
                         </select>
-                        <span onClick="removePergunta(this.parentNode.parentNode)" class="inline-flex items-center px-3 text-sm text-red-700 bg-red-300 border border-l-0 border-gray-300 rounded-r-md">
-                            <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-                                <path stroke-linecap="round" stroke-linejoin="round" d="M15 12H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z" />
-                            </svg>
-                        </span>
-                    </div>
+                    </div> 
                     <div class="resposta-details px-6">
 
                     </div>
+                    <span onClick="removePergunta(this.parentNode)" class="absolute right-0 bottom-0 px-3 text-sm text-red-700">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+                        </svg>
+                    </span>                    
                 </div>
             </div> 
         </fieldset>        
