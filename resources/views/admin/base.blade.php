@@ -15,6 +15,7 @@
         <link rel="stylesheet" href="{{ url('/') }}/css/base.css">
 
         @livewireStyles
+        
 
         <!-- Scripts -->
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.8.0/Chart.bundle.min.js" integrity="sha256-xKeoJ50pzbUGkpQxDYHD7o7hxe0LaOGeguUidbq6vis=" crossorigin="anonymous"></script>
@@ -204,8 +205,20 @@
             }
           }
 
-          var openModalQuestao = () => {
-            alert('teste')
+          //Modal padrão
+          var toggleBaseModal = () => {
+            let principal = document.querySelector('#baseModal')
+            let baseModal = document.querySelector('#baseModal .conteudo')
+            
+            if(document.body.clientWidth > 600){
+              baseModal.style.left = 50 + '%'
+            }
+
+            if(principal.classList.contains('hidden')){
+              principal.classList.remove('hidden')
+            }else{
+              principal.classList.add('hidden')
+            }
           }
           
 
