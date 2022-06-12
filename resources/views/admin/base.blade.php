@@ -203,6 +203,10 @@
               obj.remove()
             }
           }
+
+          var openModalQuestao = () => {
+            alert('teste')
+          }
           
 
         </script>        
