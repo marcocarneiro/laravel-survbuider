@@ -25,6 +25,7 @@
               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Título da Pesquisa</label>
           </div>
         </div>
+        
 
         <div class="grid xl:grid-cols-2 xl:gap-6">
           <div class="relative z-0 w-full mb-6 group">
@@ -117,6 +118,8 @@
                 </svg>
             </legend>
             <div id="perguntas">
+                <!-- id da pesquisa, campo oculto info_reg  -->
+                <input wire:model="reg" type="hidden" name="info_reg" value="{{$reg}}">
                 <div class="pergunta relative mt-6 pb-8 border-b border-gray-300">
                     <div class="flex">
                         <svg class="mover inline-flex items-center mt-1 h-5 w-5 cursor-pointer text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

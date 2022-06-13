@@ -3,6 +3,8 @@
 namespace App\Http\Livewire;
 
 use Livewire\Component;
+use Illuminate\Support\Str;
+
 use App\Models\User;
 use App\Models\Pesquisa;
 use App\Models\Filtro;
@@ -20,7 +22,7 @@ class NovaPesquisa extends Component
     public $perguntas_por_tela = 1;
     public $consentimento = false;
     public $txt_consentimento = '';
-    //public $id;
+    public $reg = 0;
 
     //campos para filtro da pesquisa (opcional)
 
@@ -45,10 +47,10 @@ class NovaPesquisa extends Component
     public function createPesquisa()
     {
         $pesquisa = new Pesquisa;
-        //dd($this->titulo, $this->pesquisa_inicio, $this->pesquisa_final, $this->perguntas_por_tela, $this->consentimento, $this->txt_consentimento);
+
         $pesquisa->user_id = auth()->user()->id;
         $pesquisa->titulo = $this->titulo;
-        $pesquisa->slug = 'Inserir aqui um slug real';
+        $pesquisa->slug = Str::slug($this->titulo, '-');
         $pesquisa->pesquisa_inicio  = $this->pesquisa_inicio;
         $pesquisa->pesquisa_final = $this->pesquisa_final;
         $pesquisa->perguntas_por_tela = $this->perguntas_por_tela;
@@ -56,6 +58,6 @@ class NovaPesquisa extends Component
         $pesquisa->txt_consentimento = $this->txt_consentimento;
 
         $pesquisa->save();
-
+        $this->reg = $pesquisa->id;
     }
 }
