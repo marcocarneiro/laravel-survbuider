@@ -23,6 +23,7 @@ return new class extends Migration
             $table->timestamp('pesquisa_final')->nullable();            
             $table->integer('perguntas_por_tela');
             $table->boolean('consentimento');
+            $table->text('txt_consentimento');
             $table->timestamps();
         });
     }
