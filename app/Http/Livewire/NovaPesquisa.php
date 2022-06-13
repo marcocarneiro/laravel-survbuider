@@ -48,6 +48,7 @@ class NovaPesquisa extends Component
         //dd($this->titulo, $this->pesquisa_inicio, $this->pesquisa_final, $this->perguntas_por_tela, $this->consentimento, $this->txt_consentimento);
         $pesquisa->user_id = auth()->user()->id;
         $pesquisa->titulo = $this->titulo;
+        $pesquisa->slug = 'Inserir aqui um slug real';
         $pesquisa->pesquisa_inicio  = $this->pesquisa_inicio;
         $pesquisa->pesquisa_final = $this->pesquisa_final;
         $pesquisa->perguntas_por_tela = $this->perguntas_por_tela;
