@@ -24,13 +24,9 @@ class NovaPesquisa extends Component
     public $txt_consentimento = '';
     public $reg = 0;
     public $showPerguntas = 'hidden';
+    public $hiddenbtn = '';
+    public $hiddenTiny = 'hidden';
     
-
-    //campos para filtro da pesquisa (opcional)
-
-
-    //campos para as perguntas da pesquisa
-
     
     public function render()
     {
@@ -41,8 +37,10 @@ class NovaPesquisa extends Component
     {
         if($this->consentimento){
             $this->consentimento = false;
+            $this->hiddenTiny = 'hidden';
         }else{
             $this->consentimento = true;
+            $this->hiddenTiny = '';
         }
     }
 
@@ -62,5 +60,6 @@ class NovaPesquisa extends Component
         $pesquisa->save();
         $this->reg = $pesquisa->id;
         $this->showPerguntas = '';
+        $this->hiddenbtn = 'hidden';
     }
 }

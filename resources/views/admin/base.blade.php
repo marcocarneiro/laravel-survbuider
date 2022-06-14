@@ -22,26 +22,7 @@
         <script src="{{ mix('js/app.js') }}" defer></script>
 
         <!-- TinyMCE  -->
-        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>
-        <script>
-          function loadTinyMCEEditor(id) {
-            tinymce.remove('#'+id);
-            tinymce.init({
-              selector: "#"+id,
-              height: 500,
-              plugins: [
-                'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                'insertdatetime', 'media', 'table', 'help', 'wordcount'
-              ],
-              toolbar: 'undo redo | blocks | ' +
-              'bold italic backcolor | alignleft aligncenter ' +
-              'alignright alignjustify | bullist numlist outdent indent | ' +
-              'removeformat | help',
-              content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }'
-            });
-          }          
-        </script>
+        <script src="{{ asset('js/tinymce/tinymce.min.js') }}" referrerpolicy="origin"></script>        
 
     </head>
     <body class="max-h-screen font-sans antialiased bg-slate-300 text-slate-700">

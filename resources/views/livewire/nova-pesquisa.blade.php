@@ -69,18 +69,40 @@
                 <input id="consentimento" type="checkbox" name="consentimento" wire:click="show_consent"/>
             </div>
         </div>
-        
-        
-        @if($consentimento)        
-        <div class="grid xl:grid-cols-1 xl:gap-6 mb-8">
+               
+        <div wire:ignore class="grid xl:grid-cols-1 xl:gap-6 mb-8">
             <p>Digite o termo de consentimento para a pesquisa:</p>
             
             {{-- texto do termo de consentimento  --}}
-            <textarea wire:model="txt_consentimento" name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400" 
-            rows="10">{{$txt_consentimento}}</textarea>
+            <textarea wire:model="txt_consentimento" name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 {{$hiddenTiny}}" 
+            rows="10"></textarea>
+            <script>
+                tinymce.init({
+                    selector: "#txt_consentimento",
+                    height: 500,
+                    plugins: [
+                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                        'insertdatetime', 'media', 'table', 'help', 'wordcount'
+                    ],
+                    toolbar: 'undo redo | blocks | ' +
+                    'bold italic backcolor | alignleft aligncenter ' +
+                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                    'removeformat | help',
+                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                    forced_root_block: false,
+                    setup: function (editor) {
+                        editor.on('init change', function () {
+                            editor.save();
+                        });
+                        editor.on('change', function (e) {
+                        @this.set('txt_consentimento', editor.getContent());
+                        });
+                    }
+                });      
+            </script>
         </div>
-        <script>loadTinyMCEEditor('txt_consentimento')</script>
-        @endif
+        
         
         <div id="accordion-collapse" data-accordion="collapse" class="grid xl:grid-cols-1">
             <h2 id="accordion-collapse-heading-2">
@@ -111,7 +133,7 @@
             </div>
         </div>
 
-        <button wire:click="createPesquisa" type="button" class="mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
+        <button wire:click="createPesquisa" type="button" class="{{$hiddenbtn}} mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
         font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
         dark:focus:ring-gray-800">Continuar</button>
 
@@ -124,17 +146,13 @@
             </legend>
 
             <div id="perguntas">
-                <!-- id da pesquisa, campo oculto info_reg  -->
+                <?php // id da pesquisa, campo oculto info_reg  ?>
                 <input wire:model="reg" type="hidden" name="info_reg" value="{{$reg}}">
                 
                 <livewire:show-perguntas>
             </div> 
         </fieldset>
-
-        {{-- <br>
-        <button type="submit" class="text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
-        font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
-        dark:focus:ring-gray-800">Criar Pesquisa</button> --}}
+        
 
     </form>
 
