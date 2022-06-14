@@ -141,14 +141,14 @@
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
-          var numQuest = 1
+          /* var numQuest = 1
           var contPerguntas = document.querySelectorAll('.pergunta').length
           var divPerguntas = document.getElementById('perguntas')
-          document.querySelector('.pergunta span.num').innerText = numQuest
+          document.querySelector('.pergunta span.num').innerText = numQuest */
 
 
           //perguntas
-          var addPerguntas = () => {
+          /* var addPerguntas = () => {
             numQuest ++           
             let pergunta = document.getElementById('perguntas').lastElementChild
             let novaPergunta = pergunta.cloneNode(true)
@@ -163,8 +163,9 @@
               obj.remove()
               reorderPerguntas()
             }            
-          };
+          }; */
           
+                    
           var setPergunta = (el, tipo) =>{
             let container = el.nextElementSibling
             container.classList.add('hidden')

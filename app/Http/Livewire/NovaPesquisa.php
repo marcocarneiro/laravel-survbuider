@@ -23,6 +23,8 @@ class NovaPesquisa extends Component
     public $consentimento = false;
     public $txt_consentimento = '';
     public $reg = 0;
+    public $showPerguntas = 'hidden';
+    
 
     //campos para filtro da pesquisa (opcional)
 
@@ -59,5 +61,6 @@ class NovaPesquisa extends Component
 
         $pesquisa->save();
         $this->reg = $pesquisa->id;
+        $this->showPerguntas = '';
     }
 }
