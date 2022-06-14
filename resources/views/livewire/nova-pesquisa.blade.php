@@ -66,8 +66,7 @@
                 
                 {{-- termo de consentimento  --}}
                 <label for="consentimento" class="text-slate-700 pr-4">Inclui termo de consentimento? </label>
-                <input wire:model="consentimento" id="consentimento" type="checkbox" name="consentimento" value="{{$consentimento}}" 
-                wire:click="show_consent"/>
+                <input id="consentimento" type="checkbox" name="consentimento" wire:click="show_consent"/>
             </div>
         </div>
         

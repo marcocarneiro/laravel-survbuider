@@ -144,7 +144,7 @@
           var numQuest = 1
           var contPerguntas = document.querySelectorAll('.pergunta').length
           var divPerguntas = document.getElementById('perguntas')
-          document.querySelector('.pergunta:nth-child(1) .num').innerText = numQuest
+          document.querySelector('.pergunta span.num').innerText = numQuest
 
 
           //perguntas
@@ -154,7 +154,7 @@
             let novaPergunta = pergunta.cloneNode(true)
             novaPergunta.querySelector('.resposta-details').classList.add('hidden')
             novaPergunta.querySelector('.num').innerText = numQuest
-            document.getElementById('perguntas').appendChild(novaPergunta)            
+            document.getElementById('perguntas').appendChild(novaPergunta)          
           };
 
           var removePergunta = (obj) => {
