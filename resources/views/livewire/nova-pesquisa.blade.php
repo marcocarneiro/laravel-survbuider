@@ -1,23 +1,28 @@
-{{-- ============== ÍNDICE DE CAMPOS ============== --}}
-{{-- pergunta complementar  --}}
-{{-- opções de resposta  --}}
-{{-- tipo de resposta  --}}
-{{-- imagem da peergunta  --}}
-{{-- texto da pergunta  --}}
-{{-- filtro da pesquisa (agrupamento de perguntas) --}}
-{{-- texto do termo de consentimento  --}}
-{{-- termo de consentimento  --}}
-{{-- perguntas por tela  --}}
-{{-- data final da pesquisa  --}}
-{{-- data de início da pesquisa  --}}
-{{-- titulo da pesquisa  --}}
+<?php 
+    /*
+        ============== ÍNDICE DE CAMPOS ==============
+        pergunta complementar  
+        opções de resposta  
+        tipo de resposta  
+        imagem da peergunta  
+        texto da pergunta 
+        filtro da pesquisa (agrupamento de perguntas) 
+        texto do termo de consentimento  
+        termo de consentimento 
+        perguntas por tela  
+        data final da pesquisa 
+        data de início da pesquisa 
+        titulo da pesquisa 
+    */
+?>
+
 
 <div class="w-full xl:w-5/6 p-10 bg-slate-100">
     <form>
         <div class="grid xl:grid-cols-1 xl:gap-6">
           <div class="relative z-0 w-full mb-6 group">
               {{-- titulo da pesquisa  --}}
-              <input wire:model="titulo" type="text" name="titulo" id="titulo" class="block py-2.5 px-0 w-full text-sm text-gray-900 
+              <input wire:model.lazy="titulo" type="text" name="titulo" id="titulo" class="block py-2.5 px-0 w-full text-sm text-gray-900 
               bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 
               dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
               <label for="titulo" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
@@ -31,7 +36,7 @@
           <div class="relative z-0 w-full mb-6 group">
               
               {{-- data de início da pesquisa  --}}
-              <input wire:model="pesquisa_inicio"  type="datetime-local" name="pesquisa_inicio" id="pesquisa_inicio" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
+              <input wire:model.lazy="pesquisa_inicio"  type="datetime-local" name="pesquisa_inicio" id="pesquisa_inicio" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
               border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
               focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
               <label for="pesquisa_inicio" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
@@ -42,7 +47,7 @@
           <div class="relative z-0 w-full mb-6 group">
               
               {{-- data final da pesquisa  --}}
-              <input wire:model="pesquisa_final" type="datetime-local" name="pesquisa_final" id="pesquisa_final" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
+              <input wire:model.lazy="pesquisa_final" type="datetime-local" name="pesquisa_final" id="pesquisa_final" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
               <label for="pesquisa_final" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
               transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-blue-600 peer-focus:dark:text-blue-500 
               peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 
@@ -54,7 +59,7 @@
             <div class="relative z-0 w-full mb-6 group">
                 
                 {{-- perguntas por tela  --}}
-                <input wire:model="perguntas_por_tela" type="number" name="perguntas_por_tela" id="perguntas_por_tela" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
+                <input wire:model.lazy="perguntas_por_tela" type="number" name="perguntas_por_tela" id="perguntas_por_tela" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
                 border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
                 focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
                 <label for="perguntas_por_tela" class="peer-focus:font-medium absolute text-sm text-gray-500 dark:text-gray-400 duration-300 
@@ -66,40 +71,48 @@
                 
                 {{-- termo de consentimento  --}}
                 <label for="consentimento" class="text-slate-700 pr-4">Inclui termo de consentimento? </label>
-                <input id="consentimento" type="checkbox" name="consentimento" wire:click="show_consent"/>
+                <input wire:model.lazy="consentimento" id="consentimento" type="checkbox" name="consentimento" onClick="show_consent()"/>
             </div>
         </div>
                
-        <div wire:ignore class="grid xl:grid-cols-1 xl:gap-6 mb-8">
+        <div id="divConsent" wire:ignore class="grid xl:grid-cols-1 xl:gap-6 mb-8 hidden">
             <p>Digite o termo de consentimento para a pesquisa:</p>
             
             {{-- texto do termo de consentimento  --}}
-            <textarea wire:model="txt_consentimento" name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 {{$hiddenTiny}}" 
+            <textarea wire:model.lazy="txt_consentimento" name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 {{$hiddenTiny}}" 
             rows="10"></textarea>
             <script>
-                tinymce.init({
-                    selector: "#txt_consentimento",
-                    height: 500,
-                    plugins: [
-                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
-                        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
-                        'insertdatetime', 'media', 'table', 'help', 'wordcount'
-                    ],
-                    toolbar: 'undo redo | blocks | ' +
-                    'bold italic backcolor | alignleft aligncenter ' +
-                    'alignright alignjustify | bullist numlist outdent indent | ' +
-                    'removeformat | help',
-                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
-                    forced_root_block: false,
-                    setup: function (editor) {
-                        editor.on('init change', function () {
-                            editor.save();
-                        });
-                        editor.on('change', function (e) {
-                        @this.set('txt_consentimento', editor.getContent());
-                        });
+                var show_consent = ()=>{
+                    let el = document.getElementById('divConsent')
+                    if(el.classList.contains('hidden')){
+                        el.classList.remove('hidden')
+                    }else{
+                        el.classList.add('hidden')
                     }
-                });      
+                    tinymce.init({
+                        selector: "#txt_consentimento",
+                        height: 500,
+                        plugins: [
+                            'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                            'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                            'insertdatetime', 'media', 'table', 'help', 'wordcount'
+                        ],
+                        toolbar: 'undo redo | blocks | ' +
+                        'bold italic backcolor | alignleft aligncenter ' +
+                        'alignright alignjustify | bullist numlist outdent indent | ' +
+                        'removeformat | help',
+                        content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',
+                        forced_root_block: false,
+                        setup: function (editor) {
+                            editor.on('init change', function () {
+                                editor.save();
+                            });
+                            editor.on('change', function (e) {
+                            @this.set('txt_consentimento', editor.getContent());
+                            });
+                        }
+                    });
+                }
             </script>
         </div>
         
@@ -119,7 +132,7 @@
                     </p>
                     
                     {{-- filtro da pesquisa (agrupamento de perguntas) --}}
-                    <input wire:model="txt_filtro" type="text" name="txt_filtro" id="txt_filtro" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block 
+                    <input wire:model.lazy="txt_filtro" type="text" name="txt_filtro" id="txt_filtro" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block 
                     w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Texto do filtro" >
                     <small>Pergunta inicial da pesquisa com opções de resposta <strong>sim e não</strong>, se a resposta for SIM, as perguntas a seguir serão carregadas.
                         Em seguida cadastre o grupo de perguntas nesse bloco. Ao final, cadastre as perguntas padrão no próximo bloco.
@@ -147,7 +160,7 @@
 
             <div id="perguntas">
                 <?php // id da pesquisa, campo oculto info_reg  ?>
-                <input wire:model="reg" type="hidden" name="info_reg" value="{{$reg}}">
+                <input wire:model.lazy="reg" type="hidden" name="info_reg" id="info_reg" value="{{$reg}}">
                 
                 <livewire:show-perguntas>
             </div> 

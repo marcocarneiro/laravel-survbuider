@@ -1,3 +1,9 @@
+<?php 
+    /*
+        Campo oculto id="info_reg" contém o registro da tabela de pesquisas 
+    */
+?>
+
 <div class="pergunta relative mt-6 pb-8 border-b border-gray-300">
     <div class="flex">
         <svg class="mover inline-flex items-center mt-1 h-5 w-5 cursor-pointer text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

@@ -15,7 +15,7 @@ use App\Models\Resultado;
 
 class NovaPesquisa extends Component
 {
-    //Campos configuração da pesquisa
+    //Propriedades
     public $titulo = '';
     public $pesquisa_inicio;
     public $pesquisa_final;
@@ -25,7 +25,9 @@ class NovaPesquisa extends Component
     public $reg = 0;
     public $showPerguntas = 'hidden';
     public $hiddenbtn = '';
-    public $hiddenTiny = 'hidden';
+    public $hiddenTiny = 'absolute invisible';
+    
+    
     
     
     public function render()
@@ -40,7 +42,7 @@ class NovaPesquisa extends Component
             $this->hiddenTiny = 'hidden';
         }else{
             $this->consentimento = true;
-            $this->hiddenTiny = '';
+            $this->hiddenTiny = 'visible';
         }
     }
 
