@@ -150,22 +150,14 @@
         font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
         dark:focus:ring-gray-800">Continuar</button>
 
-        <fieldset id="perguntas_padrao" class="{{$showPerguntas}} p-6 mt-8 mb-8 border border-gray-300">            
-            <legend class="px-4">
-                Adicionar perguntas padrão da pesquisa
-                <svg class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
-                </svg>
-            </legend>
+        <input wire:model.lazy="reg" type="hidden" name="reg" id="reg" value="{{$reg}}">
 
-            <div id="perguntas">
-                <?php // id da pesquisa, campo oculto info_reg  ?>
-                <input wire:model.lazy="reg" type="hidden" name="info_reg" id="info_reg" value="{{$reg}}">
+        <?php //COMPONENTE DE PERGUNTAS ?>
+        <!-- <div class="{{$showPerguntas}}"> -->
+        <div>
+            <livewire:show-perguntas>
+        </div>
                 
-                <livewire:show-perguntas>
-            </div> 
-        </fieldset>
-        
 
     </form>
 
