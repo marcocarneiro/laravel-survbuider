@@ -18,7 +18,7 @@
 
 
 <div class="w-full xl:w-5/6 p-10 bg-slate-100">
-    <form>
+    <form wire:submit.prevent="createPesquisa" >
         <div class="grid xl:grid-cols-1 xl:gap-6">
           <div class="relative z-0 w-full mb-6 group">
               {{-- titulo da pesquisa  --}}
@@ -79,7 +79,8 @@
             <p>Digite o termo de consentimento para a pesquisa:</p>
             
             {{-- texto do termo de consentimento  --}}
-            <textarea wire:model.lazy="txt_consentimento" name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-400 {{$hiddenTiny}}" 
+            <textarea wire:model.lazy="txt_consentimento" name="txt_consentimento" id="txt_consentimento" class="block mb-2 text-sm font-medium
+             text-gray-900 dark:text-gray-400 {{$hiddenTiny}}" 
             rows="10"></textarea>
             <script>
                 var show_consent = ()=>{
@@ -146,20 +147,21 @@
             </div>
         </div>
 
-        <button wire:click="createPesquisa" type="button" class="{{$hiddenbtn}} mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
-        font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
-        dark:focus:ring-gray-800">Continuar</button>
-
         <input wire:model.lazy="reg" type="hidden" name="reg" id="reg" value="{{$reg}}">
 
-        <?php //COMPONENTE DE PERGUNTAS ?>
-        <!-- <div class="{{$showPerguntas}}"> -->
-        <div>
-            <livewire:show-perguntas>
-        </div>
-                
-
+        <!-- <button type="submit" class="{{$hiddenbtn}} mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
+        font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
+        dark:focus:ring-gray-800">Continuar</button> -->
+        <button type="submit" class="mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
+        font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
+        dark:focus:ring-gray-800">Continuar</button>
+        
     </form>
+
+    <?php //COMPONENTE DE PERGUNTAS ?>
+    <div class="{{$showPerguntas}}"> 
+        <livewire:show-perguntas>
+    </div>
 
     <div id="baseModal" class="hidden bg-gray-900/75 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
         <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">

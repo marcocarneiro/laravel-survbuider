@@ -59,8 +59,22 @@ class NovaPesquisa extends Component
         $pesquisa->consentimento = $this->consentimento;
         $pesquisa->txt_consentimento = $this->txt_consentimento;
 
-        $pesquisa->save();
-        $this->reg = $pesquisa->id;
+        //Grava ou atualiza dados da pesquisa
+        if ($this->reg == 0) {
+            $pesquisa->save();           
+            $this->reg = $pesquisa->id;
+        } else {
+            Pesquisa::find($this->reg)->update([
+                'titulo' => $this->titulo,
+                'slug' => Str::slug($this->titulo, '-'),
+                'pesquisa_inicio' => $this->pesquisa_inicio,
+                'pesquisa_final' => $this->pesquisa_final,
+                'perguntas_por_tela' => $this->perguntas_por_tela,
+                'consentimento' => $this->consentimento,
+                'txt_consentimento' => $this->txt_consentimento,
+            ]);
+        }
+
         $this->showPerguntas = '';
         $this->hiddenbtn = 'hidden';
     }
