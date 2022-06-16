@@ -74,8 +74,14 @@ class NovaPesquisa extends Component
                 'txt_consentimento' => $this->txt_consentimento,
             ]);
         }
-
+        
         $this->showPerguntas = '';
         $this->hiddenbtn = 'hidden';
+    }
+
+    public function mostraPesquisa()
+    {
+        $this->showPerguntas = 'hidden';
+        $this->hiddenbtn = '';
     }
 }

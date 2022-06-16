@@ -18,7 +18,7 @@
 
 
 <div class="w-full xl:w-5/6 p-10 bg-slate-100">
-    <form wire:submit.prevent="createPesquisa" >
+    <form wire:submit.prevent="createPesquisa" class="{{$hiddenbtn}}">
         <div class="grid xl:grid-cols-1 xl:gap-6">
           <div class="relative z-0 w-full mb-6 group">
               {{-- titulo da pesquisa  --}}
@@ -149,17 +149,20 @@
 
         <input wire:model.lazy="reg" type="hidden" name="reg" id="reg" value="{{$reg}}">
 
-        <!-- <button type="submit" class="{{$hiddenbtn}} mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
-        font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
-        dark:focus:ring-gray-800">Continuar</button> -->
-        <button type="submit" class="mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
+        <button type="submit" class="{{$hiddenbtn}} mt-6 mb-6 text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
         font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
         dark:focus:ring-gray-800">Continuar</button>
         
     </form>
 
     <?php //COMPONENTE DE PERGUNTAS ?>
-    <div class="{{$showPerguntas}}"> 
+    <div class="{{$showPerguntas}}">
+        <button wire:click="mostraPesquisa" type="button" class="w-full text-white bg-slate-600 hover:bg-slate-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center inline-flex items-center dark:bg-slate-700">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
+            </svg>
+            Retornar para pesquisa: {{$titulo}}
+        </button>
         <livewire:show-perguntas>
     </div>
 

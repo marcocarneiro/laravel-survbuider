@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Pergunta extends Model
 {
     use HasFactory;
+    protected $fillable=['tipo', 'txt_pergunta', 'id_opc_resposta', 'midia'];
 
     public function pesquisa()
     {

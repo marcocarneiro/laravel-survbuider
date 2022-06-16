@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Opc_resposta extends Model
 {
     use HasFactory;
+    protected $fillable=['txt_opc_resposta'];
 
     public function pergunta()
     {

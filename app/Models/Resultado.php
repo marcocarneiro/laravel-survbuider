@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Resultado extends Model
 {
     use HasFactory;
+    protected $fillable=['aceite', 'ip_usuario', 'navegador', 'data_hora_inicio', 'data_hora_final', 'dados', 'completo'];
 
     public function pesquisa()
     {

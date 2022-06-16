@@ -8,6 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class Filtro extends Model
 {
     use HasFactory;
+    protected $fillable=['txt_filtro'];
+    
     public function pesquisa()
     {
         return $this->belongsTo(Pesquisa::class);
