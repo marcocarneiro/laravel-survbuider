@@ -19,6 +19,7 @@
 
 <div class="w-full xl:w-5/6 p-10 bg-slate-100">
     <form wire:submit.prevent="createPesquisa" class="{{$hiddenbtn}}">
+        @csrf
         <div class="grid xl:grid-cols-1 xl:gap-6">
           <div class="relative z-0 w-full mb-6 group">
               {{-- titulo da pesquisa  --}}
@@ -161,49 +162,12 @@
             <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M10 19l-7-7m0 0l7-7m-7 7h18" />
             </svg>
-            Retornar para pesquisa: {{$titulo}}
+            Retornar para pesquisa: {{$titulo}} 
         </button>
-        <livewire:show-perguntas>
-    </div>
-
-    <div id="baseModal" class="hidden bg-gray-900/75 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
-        <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
-            <div class="conteudo relative lg:mt-12 bg-white rounded-lg shadow dark:bg-gray-700">
-                <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
-                    <h3 class="text-xl font-semibold text-gray-900 dark:text-white">
-                        Pergunta complementar
-                    </h3>
-                    <button onClick="toggleBaseModal()" type="button" class="text-gray-400 bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm p-1.5 ml-auto inline-flex items-center dark:hover:bg-gray-600 dark:hover:text-white">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd"></path></svg>  
-                    </button>
-                </div>
-                <div class="p-6 space-y-6">
-                    <p class="text-base leading-relaxed text-gray-500 dark:text-gray-400">
-                        Adicione aqui uma pergunta que será exibida somente se o participante selecionar a opção de resposta selecionada.
-                    </p>
-                    {{-- pergunta complementar  --}}
-                    <textarea name="txt_pergunta" 
-                    rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border
-                    border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
-                    dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
-                    placeholder="Digite aqui o texto da pergunta"></textarea>
-
-                    <select name="tipo" class="tipo w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 
-                        dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                            <option value="">Tipo de resposta</option> 
-                            <option value="text">Texto</option>
-                            <option value="number">Número</option>
-                            <option value="checkbox">Múltipla escolha</option>
-                            <option value="radio">Radio</option>
-                    </select>
-
-                    <button type="button" class="text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
-                    font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-gray-600 dark:hover:bg-gray-700 
-                    dark:focus:ring-gray-800">Concluir</button>
-
-                </div>
-            </div>
-        </div>
-    </div>
+        <?php //Envia o parâmetro $reg (id da pesquisa) somente após a sua atualização ?>
+        @if($reg > 0)            
+            <livewire:show-perguntas :reg="$reg">
+        @endif
+    </div>    
 </div>
 

@@ -8,7 +8,6 @@ use Illuminate\Support\Str;
 use App\Models\User;
 use App\Models\Pesquisa;
 use App\Models\Filtro;
-use App\Models\Pergunta;
 use App\Models\Opc_resposta;
 use App\Models\Consentimento;
 use App\Models\Resultado;
@@ -25,14 +24,11 @@ class NovaPesquisa extends Component
     public $reg = 0;
     public $showPerguntas = 'hidden';
     public $hiddenbtn = '';
-    public $hiddenTiny = 'absolute invisible';
-    
-    
-    
+    public $hiddenTiny = 'absolute invisible';    
     
     public function render()
     {
-        return view('livewire.nova-pesquisa');
+        return view('livewire.nova-pesquisa')->layout('admin.base');
     }
 
     public function show_consent()

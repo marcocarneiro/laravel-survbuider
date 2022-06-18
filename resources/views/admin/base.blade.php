@@ -119,6 +119,48 @@
         
 
         @livewireScripts
-        <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>               
+        <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
+        <script>
+                    
+          var setPergunta = (el, tipo) =>{
+            /* let container = el.nextElementSibling
+            container.classList.add('hidden')
+            if(tipo == 'checkbox' || tipo == 'radio'){
+              container.classList.remove('hidden')
+            } */
+          }
+
+          //Opções de resposta
+          var addOpcRespostas = (obj) => {
+            let lastOpc = obj.lastElementChild
+            let novaOpc = lastOpc.cloneNode(true)
+            obj.appendChild(novaOpc)      
+          }
+
+          var removeOpcResposta = (obj) => {
+            let fieldSet = obj.parentNode
+            let count = fieldSet.querySelectorAll('.opc-resposta').length
+            if(count > 1){
+              obj.remove()
+            }
+          }
+
+          //Modal padrão
+          var toggleBaseModal = () => {
+            let principal = document.querySelector('#baseModal')
+            let baseModal = document.querySelector('#baseModal .conteudo')
+            
+            if(document.body.clientWidth > 600){
+              baseModal.style.left = 50 + '%'
+            }
+
+            if(principal.classList.contains('hidden')){
+              principal.classList.remove('hidden')
+            }else{
+              principal.classList.add('hidden')
+            }
+          }
+        </script>              
     </body>
 </html>
