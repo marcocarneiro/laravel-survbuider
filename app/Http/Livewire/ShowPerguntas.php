@@ -9,8 +9,7 @@ class ShowPerguntas extends Component
 {    
     public $perguntas = [];
     public $reg;
-    public $idPergunta = 0;
-
+    
     public function addNew()
     {
         $this->perguntas[] = [];

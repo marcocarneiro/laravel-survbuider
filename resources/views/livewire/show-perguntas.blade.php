@@ -44,7 +44,7 @@
               </div>
             </div>
 
-            <div>            
+            <div wire:ignore>            
               {{-- tipo de resposta  --}}
               <select name="tipo" wire:model.lazy="perguntas.{{$i}}.tipo" onChange="setPergunta(this, this.value)" required
               class="tipo w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 
