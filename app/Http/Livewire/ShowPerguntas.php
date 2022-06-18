@@ -31,6 +31,11 @@ class ShowPerguntas extends Component
             if(isset($perg['txt_pergunta'])){$pergunta->txt_pergunta = $perg['txt_pergunta'];}
             if(isset($perg['id_opc_resposta'])){$pergunta->id_opc_resposta = $perg['id_opc_resposta'];}
             $pergunta->save();
+
+            if($perg['tipo'] == 'checkbox' || $perg['tipo'] == 'radio'){
+                //grava opções de resposta na tabela opc_resposta
+                
+            }
         }
         return redirect('dashboard');
     }
