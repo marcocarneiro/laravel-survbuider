@@ -21,7 +21,7 @@ return new class extends Migration
             $table->foreign('id_grupo')->references('id')->on('filtros');
             $table->string('tipo');
             $table->text('txt_pergunta');
-            $table->integer('id_opc_resposta');
+            $table->integer('id_opc_resposta')->nullable();
             $table->string('midia')->nullable();
             $table->timestamps();
         });

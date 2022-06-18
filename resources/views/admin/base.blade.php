@@ -123,12 +123,13 @@
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
                     
+          //FAZER VIA COMPONENTE - OPÇÕES DE RESPOSTA
           var setPergunta = (el, tipo) =>{
-            /* let container = el.nextElementSibling
+            let container = el.nextElementSibling
             container.classList.add('hidden')
             if(tipo == 'checkbox' || tipo == 'radio'){
               container.classList.remove('hidden')
-            } */
+            }
           }
 
           //Opções de resposta
