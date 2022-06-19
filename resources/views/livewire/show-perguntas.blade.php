@@ -61,12 +61,12 @@
               <fieldset class="resposta-details p-6 mt-8 mb-8 border border-gray-300 hidden">            
                 <legend class="px-4">
                   Adicionar opções de resposta
-                  <svg onClick="addOpcRespostas(this.parentNode.parentNode)" class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <svg wire:click="keyGenerate" onClick="addOpcRespostas(this.parentNode.parentNode)" class="cursor-pointer inline-block w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                       <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 9v3m0 0v3m0-3h3m-3 0H9m12 0a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                   </svg>
                 </legend>
                 
-                <div class="relative opc-resposta">
+                <div class="relative opc-resposta" wire:ignore>
                   <div onClick="removeOpcResposta(this.parentNode)" class="absolute inset-y-0 right-6 flex items-center pl-3 cursor-pointer text-red-700">
                       <svg xmlns="http://www.w3.org/2000/svg" class="cursor-pointer h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                           <path stroke-linecap="round" stroke-linejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
@@ -77,7 +77,7 @@
                   </svg>
 
                   {{-- opções de resposta  --}}
-                  <input type="text" name="txt_opc_resposta" wire:model.lazy="opcoes.txt_opc_resposta" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  
+                  <input type="text" name="txt_opc_resposta" wire:model.lazy="opcoes.{{$chave}}.txt_opc_resposta" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  
                   dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Digite o texto da opção de resposta">
                 </div>
               </fieldset>

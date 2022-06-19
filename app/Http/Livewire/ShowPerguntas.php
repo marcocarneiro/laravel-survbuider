@@ -10,6 +10,7 @@ class ShowPerguntas extends Component
     public $perguntas = [];
     public $opcoes = [];  
     public $reg;
+    public $chave = 0;
     
     public function addNew()
     {
@@ -20,6 +21,11 @@ class ShowPerguntas extends Component
     {
         unset($this->perguntas[$index]);
         $this->perguntas = array_values($this->perguntas);
+    }
+
+    public function keyGenerate()
+    {
+        $this->chave ++;
     }
 
     public function store()
@@ -35,7 +41,10 @@ class ShowPerguntas extends Component
 
             if($perg['tipo'] == 'checkbox' || $perg['tipo'] == 'radio'){
                 //grava opções de resposta na tabela opc_resposta
-                dump($this->opcoes, $pergunta->id);
+                //dump($this->opcoes, $pergunta->id);
+                foreach ($this->opcoes as $opc) {
+                    dump($opc['txt_opc_resposta'], $pergunta->id);
+                }
             }
         }
         return redirect('dashboard');
