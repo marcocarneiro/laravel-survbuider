@@ -4,12 +4,11 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Pergunta;
-use App\Models\Opc_resposta;
 
 class ShowPerguntas extends Component
 {    
     public $perguntas = [];
-    public $opcoes = [];
+    public $opcoes = [];  
     public $reg;
     
     public function addNew()
@@ -36,7 +35,7 @@ class ShowPerguntas extends Component
 
             if($perg['tipo'] == 'checkbox' || $perg['tipo'] == 'radio'){
                 //grava opções de resposta na tabela opc_resposta
-                
+                dump($this->opcoes, $pergunta->id);
             }
         }
         return redirect('dashboard');

@@ -44,7 +44,9 @@
               </div>
             </div>
 
-            <div wire:ignore>            
+            <div wire:ignore>
+              
+            
               {{-- tipo de resposta  --}}
               <select name="tipo" wire:model.lazy="perguntas.{{$i}}.tipo" onChange="setPergunta(this, this.value)" required
               class="tipo w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 
@@ -55,7 +57,7 @@
                 <option value="checkbox">Múltipla escolha</option>
                 <option value="radio">Radio</option>
               </select>
-
+              
               <fieldset class="resposta-details p-6 mt-8 mb-8 border border-gray-300 hidden">            
                 <legend class="px-4">
                   Adicionar opções de resposta
@@ -75,11 +77,13 @@
                   </svg>
 
                   {{-- opções de resposta  --}}
-                  <input type="text" name="txt_opc_resposta" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  
+                  <input type="text" name="txt_opc_resposta" wire:model.lazy="opcoes.txt_opc_resposta" class="mb-6 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5  
                   dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="Digite o texto da opção de resposta">
                 </div>
               </fieldset>
             </div>
+
+
           </div>
           
           <span wire:click="remove({{$i}})" class="absolute right-0 bottom-0 px-3 text-sm text-red-700">
