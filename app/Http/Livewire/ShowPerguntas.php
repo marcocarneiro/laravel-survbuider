@@ -4,10 +4,12 @@ namespace App\Http\Livewire;
 
 use Livewire\Component;
 use App\Models\Pergunta;
+use App\Models\Opc_resposta;
 
 class ShowPerguntas extends Component
 {    
     public $perguntas = [];
+    public $opcoes = [];
     public $reg;
     
     public function addNew()
