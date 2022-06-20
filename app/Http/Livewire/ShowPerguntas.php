@@ -36,7 +36,7 @@ class ShowPerguntas extends Component
     
     public function store($dados)
     {   
-        dump($dados);
+        dump(count($dados));
         /* foreach ($this->perguntas as $perg) {
             $pergunta = new Pergunta;
             $pergunta->id_pesquisa = $this->reg;
