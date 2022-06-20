@@ -110,33 +110,36 @@
               </ul>
             </div>
             </div>
-        </nav>
-        
+        </nav>        
 
         <div class="w-full h-full p-10 pt-24">
             @yield('conteudo')
-        </div>
-        
+        </div>        
 
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
                     
-          //FAZER VIA COMPONENTE - OPÇÕES DE RESPOSTA
-          var setPergunta = (el, tipo) =>{
+          //Exibe caixa de opções de resposta e nomeia o input
+          var setPergunta = (el, tipo, num) =>{
             let container = el.nextElementSibling
+            let input = container.lastElementChild.lastElementChild
+            let idunico = Math.floor(Date.now() * Math.random()).toString(36)
             container.classList.add('hidden')
             if(tipo == 'checkbox' || tipo == 'radio'){
               container.classList.remove('hidden')
+              input.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
             }
           }
 
           //Opções de resposta
-          var addOpcRespostas = (obj) => {
+          var addOpcRespostas = (obj, num) => {
             let lastOpc = obj.lastElementChild
             let novaOpc = lastOpc.cloneNode(true)
-            obj.appendChild(novaOpc)      
+            let idunico = Math.floor(Date.now() * Math.random()).toString(36)
+            novaOpc.lastElementChild.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
+            obj.appendChild(novaOpc)
           }
 
           var removeOpcResposta = (obj) => {
