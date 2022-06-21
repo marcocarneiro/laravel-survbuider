@@ -48,6 +48,7 @@ Route::middleware([
         return view('admin.dashboard');
     })->name('dashboard');    
     Route::get('/new-pesquisa', [PesquisaAdmController::class, 'newPesquisa'])->name('new-pesquisa');
+    Route::post('/store-pesquisa', [PesquisaAdmController::class, 'storePesquisa'])->name('store-pesquisa');
     /* 
     Route::get('/list-surv', function () {
         return view('admin.list-surv');

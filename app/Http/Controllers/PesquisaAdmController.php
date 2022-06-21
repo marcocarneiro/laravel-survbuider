@@ -17,4 +17,9 @@ class PesquisaAdmController extends Controller
         //$user = auth()->user();
         return view('admin.new-pesquisa');
     }
+
+    public function storePesquisa(Request $request)
+    {
+        dump($request-all);
+    }
 }
