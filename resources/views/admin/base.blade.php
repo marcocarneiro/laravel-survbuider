@@ -122,23 +122,23 @@
         <script>
                     
           //Exibe caixa de opções de resposta e nomeia o input
-          var setPergunta = (el, tipo, num) =>{
+          var setPergunta = (el, tipo) =>{
             let container = el.nextElementSibling
-            let input = container.lastElementChild.lastElementChild
-            let idunico = Math.floor(Date.now() * Math.random()).toString(36)
+            //let input = container.lastElementChild.lastElementChild
+            //let idunico = Math.floor(Date.now() * Math.random()).toString(36)
             container.classList.add('hidden')
             if(tipo == 'checkbox' || tipo == 'radio'){
               container.classList.remove('hidden')
-              input.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
+              //input.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
             }
           }
 
           //Opções de resposta
-          var addOpcRespostas = (obj, num) => {
+          var addOpcRespostas = (obj) => {
             let lastOpc = obj.lastElementChild
             let novaOpc = lastOpc.cloneNode(true)
-            let idunico = Math.floor(Date.now() * Math.random()).toString(36)
-            novaOpc.lastElementChild.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
+            //let idunico = Math.floor(Date.now() * Math.random()).toString(36)
+            //novaOpc.lastElementChild.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
             obj.appendChild(novaOpc)
           }
 

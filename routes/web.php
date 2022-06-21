@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\PesquisaAdmController;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,7 +32,6 @@ Route::get('/', function () {
 |--------------------------------------------------------------------------
     /admin - Tela de Login para entrar no painel de administração
     /dashboard - (somente logado) Dashboard com acesso à construção/edição de pesquisas e relatórios
-    /list-surv - (somente logado) Lista de pesquisas cadastradas
     /criar-pesquisa - (somente logado) Construção de uma pesquisa
 */
 Route::get('/admin', function () {
@@ -47,11 +46,13 @@ Route::middleware([
 ])->group(function () {
     Route::get('/dashboard', function () {
         return view('admin.dashboard');
-    })->name('dashboard');
+    })->name('dashboard');    
+    Route::get('/new-pesquisa', [PesquisaAdmController::class, 'newPesquisa'])->name('new-pesquisa');
+    /* 
     Route::get('/list-surv', function () {
         return view('admin.list-surv');
     })->name('list-surv');
     Route::get('/criar-pesquisa', function () {
         return view('admin.criar-pesquisa');
-    })->name('criar-pesquisa');
+    })->name('criar-pesquisa'); */
 });
