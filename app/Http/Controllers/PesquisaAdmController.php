@@ -20,6 +20,6 @@ class PesquisaAdmController extends Controller
 
     public function storePesquisa(Request $request)
     {
-        dump($request-all);
+        dump($request);
     }
 }
