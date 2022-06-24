@@ -121,20 +121,26 @@
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
         
-          //Duplica perguntas
-          var duplicatePerguntas = (el) =>{
-            
+          //Duplica pergunta
+          var duplicatePerguntas = () =>{
+            let lastPergunta = document.getElementById('perguntas').lastElementChild
+            let novaPergunta = lastPergunta.cloneNode(true)
+            document.getElementById('perguntas').appendChild(novaPergunta)
+          }
+          //Remove pergunta
+          var removePergunta = (obj) => {
+            let count = document.querySelectorAll('.pergunta').length
+            if(count > 1){
+              obj.remove()
+            }
           }
           
           //Exibe caixa de opções de resposta
           var setPergunta = (el, tipo) =>{
             let container = el.nextElementSibling
-            //let input = container.lastElementChild.lastElementChild
-            //let idunico = Math.floor(Date.now() * Math.random()).toString(36)
             container.classList.add('hidden')
             if(tipo == 'checkbox' || tipo == 'radio'){
               container.classList.remove('hidden')
-              //input.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
             }
           }
 
@@ -142,8 +148,6 @@
           var addOpcRespostas = (obj) => {
             let lastOpc = obj.lastElementChild
             let novaOpc = lastOpc.cloneNode(true)
-            //let idunico = Math.floor(Date.now() * Math.random()).toString(36)
-            //novaOpc.lastElementChild.setAttribute('name', 'txt_opc_resposta_'+num+'_'+idunico)
             obj.appendChild(novaOpc)
           }
 
