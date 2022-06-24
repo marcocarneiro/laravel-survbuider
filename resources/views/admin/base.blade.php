@@ -120,8 +120,13 @@
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
-                    
-          //Exibe caixa de opções de resposta e nomeia o input
+        
+          //Duplica perguntas
+          var duplicatePerguntas = (el) =>{
+            
+          }
+          
+          //Exibe caixa de opções de resposta
           var setPergunta = (el, tipo) =>{
             let container = el.nextElementSibling
             //let input = container.lastElementChild.lastElementChild

@@ -172,14 +172,14 @@
                                   <svg class="mover inline-flex items-center mt-1 h-5 w-5 cursor-pointer text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                       <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                   </svg>
-                                  <label for="txt_pergunta" class="block mt-1 text-sm font-medium text-gray-900 dark:text-gray-400">
+                                  <label for="txt_pergunta[]" class="block mt-1 text-sm font-medium text-gray-900 dark:text-gray-400">
                                       Questão
                                   </label>                   
                                 </div>
                                 <div class="grid xl:grid-cols-2 xl:gap-6 gap-2 mb-6">
                                   <div>         
                                     {{-- texto da pergunta  --}}
-                                    <textarea name="txt_pergunta" 
+                                    <textarea name="txt_pergunta[]" 
                                     rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border
                                     border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
                                     dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
@@ -187,7 +187,7 @@
                                     <label class="block mt-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="midia">Upload file</label>
                                     
                                     {{-- imagem da pergunta  --}}
-                                    <input name="midia" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer 
+                                    <input name="midia[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer 
                                     bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 
                                     dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="midia_help" id="midia" type="file">
                                     <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="midia_help">
@@ -197,7 +197,7 @@
                       
                                   <div>
                                     {{-- tipo de resposta  --}}
-                                    <select name="tipo" onChange="setPergunta(this, this.value)" required
+                                    <select name="tipo[]" onChange="setPergunta(this, this.value)" required
                                     class="tipo w-full rounded-lg bg-gray-50 border border-gray-300 text-gray-900 text-sm focus:ring-blue-500 focus:border-blue-500 p-2.5 
                                     dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                       <option value="">Tipo de resposta</option> 
