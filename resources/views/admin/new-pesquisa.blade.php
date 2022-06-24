@@ -173,7 +173,7 @@
                                     <svg class="mover inline-flex items-center mt-1 h-5 w-5 cursor-pointer text-gray-500" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                     </svg>
-                                    <label for="txt_pergunta[]" class="block mt-1 text-sm font-medium text-gray-900 dark:text-gray-400">
+                                    <label for="txt_pergunta" class="block mt-1 text-sm font-medium text-gray-900 dark:text-gray-400">
                                         Questão
                                     </label>                   
                                 </div>
@@ -185,8 +185,8 @@
                                         border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
                                         dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" 
                                         placeholder="Digite aqui o texto da pergunta"></textarea>
-                                        <label class="block mt-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="midia">Upload file</label>
-                                        
+
+                                        <label class="block mt-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="midia">Upload file</label> 
                                         {{-- imagem da pergunta  --}}
                                         <input name="midia[]" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer 
                                         bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 
@@ -248,7 +248,7 @@
             </div>
 
             {{-- Questão complementar  --}}
-            <div id="baseModal" class="hidden bg-gray-900/75 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
+            {{-- <div id="baseModal" class="hidden bg-gray-900/75 overflow-y-auto overflow-x-hidden fixed top-0 right-0 left-0 z-50 w-full md:inset-0 h-modal md:h-full">
                 <div class="relative p-4 w-full max-w-2xl h-full md:h-auto">
                 <div class="conteudo relative lg:mt-12 bg-white rounded-lg shadow dark:bg-gray-700">
                     <div class="flex justify-between items-start p-4 rounded-t border-b dark:border-gray-600">
@@ -264,7 +264,7 @@
                             Adicione aqui uma pergunta que será exibida somente se o participante selecionar a opção de 
                             resposta selecionada.
                         </p>
-                        {{-- pergunta complementar  --}}
+                        
                         <textarea name="txt_pergunta" 
                         rows="4" class="block p-2.5 w-full text-sm text-gray-900 bg-gray-50 rounded-lg border
                         border-gray-300 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 
@@ -286,7 +286,7 @@
                     </div>
                 </div>
                 </div>
-            </div>
+            </div> --}}
 
             <button type="submit" class="mt-6 mb-6 text-sm w-full sm:w-auto px-5 py-2.5 text-center text-white bg-gray-900 hover:bg-gray-800 focus:ring-4 focus:outline-none focus:ring-gray-300 
             font-medium rounded-lg dark:bg-gray-600 dark:hover:bg-gray-700 

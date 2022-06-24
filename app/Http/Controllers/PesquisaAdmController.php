@@ -22,7 +22,7 @@ class PesquisaAdmController extends Controller
 
     public function storePesquisa(Request $request)
     { 
-        /* $pesquisa = new Pesquisa;
+        $pesquisa = new Pesquisa;
 
         $pesquisa->user_id = auth()->user()->id;
         $pesquisa->titulo = $request->titulo;
@@ -36,13 +36,21 @@ class PesquisaAdmController extends Controller
         //Grava dados da pesquisa
         $pesquisa->save();
         //Retorna o registro da pesquisa          
-        $reg = $pesquisa->id; */
-
-        dump($request);      
-        /*
+        $reg = $pesquisa->id;
+                
+        
         //Laço para gravar as perguntas
-            //Dentro do laço retorna o ID da pergunta salva
-                //Laço para gravar as opções de resposta se a pergunta for do tipo radio ou checkbox
-        */
+        $perguntas = $request->input('txt_perguntas[]');
+        foreach($perguntas as $pergunta)
+        {
+            $pergunta = new Pergunta();
+            $pergunta->id_pesquisa = $reg;
+            $pergunta->tipo = $request->tipo;
+            $pergunta->txt_pergunta = $request->txt_pergunta;
+
+            $pergunta->save();
+            dump($pergunta->id);
+        }
+
     }
 }
