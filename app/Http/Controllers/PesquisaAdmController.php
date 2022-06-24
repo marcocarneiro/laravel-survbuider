@@ -39,18 +39,19 @@ class PesquisaAdmController extends Controller
         $reg = $pesquisa->id;
                 
         
-        //Laço para gravar as perguntas
-        $perguntas = $request->input('txt_perguntas[]');
-        foreach($perguntas as $pergunta)
+        //Laço para gravar as perguntas e atributos
+        $perguntas = $request->txt_pergunta;
+        $perguntasTipos = $request->tipo;
+        for($i=0; $i<count($perguntas); $i++)
         {
             $pergunta = new Pergunta();
             $pergunta->id_pesquisa = $reg;
-            $pergunta->tipo = $request->tipo;
-            $pergunta->txt_pergunta = $request->txt_pergunta;
+            $pergunta->txt_pergunta = $perguntas[$i];
+            $pergunta->tipo = $perguntasTipos[$i];
 
             $pergunta->save();
             dump($pergunta->id);
+            //Se o tipo for checkbox ou radio grava as opções - laço de opções
         }
-
     }
 }
