@@ -34,7 +34,7 @@ class PesquisaAdmController extends Controller
         $pesquisa->txt_consentimento = $request->txt_consentimento;
 
         //Grava dados da pesquisa e retorna o registro da pesquisa
-        //$pesquisa->save();
+        $pesquisa->save();
         $reg = $pesquisa->id;                
         
         //Laço para gravar as perguntas e atributos
