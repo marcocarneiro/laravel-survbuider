@@ -174,7 +174,7 @@
                                         <path stroke-linecap="round" stroke-linejoin="round" d="M8 9l4-4 4 4m0 6l-4 4-4-4" />
                                     </svg>
                                     <label for="txt_pergunta" class="block mt-1 text-sm font-medium text-gray-900 dark:text-gray-400">
-                                        Questão <span class="numeroQ"></span>
+                                        Questão <span class="numeroQ"></span><input type="hidden" name="numPergunta[]" value="">
                                     </label>                   
                                 </div>
                                 <div class="grid xl:grid-cols-2 xl:gap-6 gap-2 mb-6">
@@ -193,7 +193,7 @@
                                         dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="midia_help" id="midia" type="file">
                                         <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="midia_help">
                                             (opcional) Imagem para exibir junto com a pergunta. Formatos .gif, .jpg e .png
-                                        </div>
+                                        </div>                                        
                                     </div>
                         
                                     <div>

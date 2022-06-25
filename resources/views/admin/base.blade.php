@@ -128,15 +128,15 @@
             let spanNumeroQ = document.querySelectorAll('.numeroQ')
             for(let spanNum of spanNumeroQ)
             {
+              spanNum.nextSibling.value = $i
               $i ++;
-              spanNum.innerText = $i
+              spanNum.innerText = $i              
             }
           }               
         
           var duplicatePerguntas = () =>{
             let lastPergunta = document.getElementById('perguntas').lastElementChild
             let novaPergunta = lastPergunta.cloneNode(true)
-            //numQuestao ++;
             document.getElementById('perguntas').appendChild(novaPergunta)
             atualizaNumeracao()          
           }
@@ -144,7 +144,6 @@
             let count = document.querySelectorAll('.pergunta').length
             if(count > 1){
               obj.remove()
-              //numQuestao --;
             }
             atualizaNumeracao()
           }
@@ -187,7 +186,6 @@
               principal.classList.add('hidden')
             }
           }
-
           
           atualizaNumeracao()
 
