@@ -33,25 +33,37 @@ class PesquisaAdmController extends Controller
         $pesquisa->consentimento = $request->consentimento;
         $pesquisa->txt_consentimento = $request->txt_consentimento;
 
-        //Grava dados da pesquisa
+        //Grava dados da pesquisa e retorna o registro da pesquisa
         $pesquisa->save();
-        //Retorna o registro da pesquisa          
-        $reg = $pesquisa->id;
-                
+        $reg = $pesquisa->id;                
         
         //Laço para gravar as perguntas e atributos
         $perguntas = $request->txt_pergunta;
         $perguntasTipos = $request->tipo;
         for($i=0; $i<count($perguntas); $i++)
         {
-            $pergunta = new Pergunta();
+            $pergunta = new Pergunta;
             $pergunta->id_pesquisa = $reg;
             $pergunta->txt_pergunta = $perguntas[$i];
             $pergunta->tipo = $perguntasTipos[$i];
 
             $pergunta->save();
-            dump($pergunta->id);
-            //Se o tipo for checkbox ou radio grava as opções - laço de opções
+            $regPergunta = $pergunta->id;
+
+            //Se o tipo for checkbox ou radio grava as opções de resposta - laço de opções
+            if($perguntasTipos[$i] == 'checkbox' || $perguntasTipos[$i] == 'radio'){
+                $opcoesRespostas = $request->txt_opc_resposta;
+                for($iOpc=0; $iOpc<count($opcoesRespostas); $iOpc++)
+                {
+                    $opcao = new Opc_resposta;
+                    $opcao->id_pergunta = $regPergunta;
+                    $opcao->txt_opc_resposta = $opcoesRespostas[$iOpc];
+
+                    $opcao->save();
+                }
+            }
         }
+
+        return redirect('dashboard');
     }
 }

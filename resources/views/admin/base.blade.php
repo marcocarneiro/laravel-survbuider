@@ -120,19 +120,33 @@
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
+
+          //var numQuestao = 0 
+
+          var atualizaNumeracao = ()=>{
+            let $i = 0
+            let spanNumeroQ = document.querySelectorAll('.numeroQ')
+            for(let spanNum of spanNumeroQ)
+            {
+              $i ++;
+              spanNum.innerText = $i
+            }
+          }               
         
-          //Duplica pergunta
           var duplicatePerguntas = () =>{
             let lastPergunta = document.getElementById('perguntas').lastElementChild
             let novaPergunta = lastPergunta.cloneNode(true)
+            //numQuestao ++;
             document.getElementById('perguntas').appendChild(novaPergunta)
+            atualizaNumeracao()          
           }
-          //Remove pergunta
           var removePergunta = (obj) => {
             let count = document.querySelectorAll('.pergunta').length
             if(count > 1){
               obj.remove()
+              //numQuestao --;
             }
+            atualizaNumeracao()
           }
           
           //Exibe caixa de opções de resposta
@@ -150,7 +164,6 @@
             let novaOpc = lastOpc.cloneNode(true)
             obj.appendChild(novaOpc)
           }
-
           var removeOpcResposta = (obj) => {
             let fieldSet = obj.parentNode
             let count = fieldSet.querySelectorAll('.opc-resposta').length
@@ -174,6 +187,10 @@
               principal.classList.add('hidden')
             }
           }
+
+          
+          atualizaNumeracao()
+
         </script>              
     </body>
 </html>
