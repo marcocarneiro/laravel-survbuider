@@ -59,11 +59,9 @@ class PesquisaAdmController extends Controller
                    //$numStart e $numEnd definem o intervalo das opções de reposta
                    //com base nos valores do campo oculto numPergunta */
                 $numStart = $perguntasNum[$i];
-                if($numStart == 0){
-                    $numEnd = count($perguntasNum);
-                }else{
-                    $numEnd = count($perguntasNum) - $numStart;
-                }
+                $numEnd = count($perguntasNum) - $numStart;
+                if($numStart > 0){  $numEnd = count($perguntasNum) - $numStart; }
+                
                 for($iOpc=$numStart; $iOpc < $numEnd; $iOpc++)
                 {
                     $opcao = new Opc_resposta;
