@@ -121,18 +121,15 @@
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
 
-          //var numQuestao = 0 
-
           var atualizaNumeracao = ()=>{
             let $i = 0
             let spanNumeroQ = document.querySelectorAll('.numeroQ')
             for(let spanNum of spanNumeroQ)
             {
-              spanNum.nextSibling.value = $i
               $i ++;
               spanNum.innerText = $i              
             }
-          }               
+          }
         
           var duplicatePerguntas = () =>{
             let lastPergunta = document.getElementById('perguntas').lastElementChild
@@ -162,12 +159,22 @@
             let lastOpc = obj.lastElementChild
             let novaOpc = lastOpc.cloneNode(true)
             obj.appendChild(novaOpc)
+            fillQtdeOpcResp()
           }
           var removeOpcResposta = (obj) => {
             let fieldSet = obj.parentNode
             let count = fieldSet.querySelectorAll('.opc-resposta').length
             if(count > 1){
               obj.remove()
+              fillQtdeOpcResp()
+            }
+          }
+          var fillQtdeOpcResp = ()=> {
+            let fields = document.querySelectorAll('.infQtdeOpc')
+            for(let field of fields )
+            {
+              let el = field.parentElement
+              field.value = el.querySelectorAll('.opc-resposta').length
             }
           }
 
