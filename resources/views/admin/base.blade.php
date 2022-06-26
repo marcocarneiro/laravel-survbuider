@@ -123,11 +123,17 @@
 
           var atualizaNumeracao = ()=>{
             let $i = 0
-            let spanNumeroQ = document.querySelectorAll('.numeroQ')
+            let spanNumeroQ = document.querySelectorAll('.numeroQ')            
             for(let spanNum of spanNumeroQ)
             {
-              $i ++;
-              spanNum.innerText = $i              
+              let elementoPai = spanNum.parentElement.parentElement.parentElement
+              let fieldsOpcao = elementoPai.querySelectorAll('.campo-opcao')
+              for(let fieldOpc of fieldsOpcao)
+              {
+                fieldOpc.setAttribute('name','txt_opc_resposta'+$i+'[]')
+              }
+              spanNum.innerText = $i+1
+              $i ++;          
             }
           }
         
@@ -135,7 +141,7 @@
             let lastPergunta = document.getElementById('perguntas').lastElementChild
             let novaPergunta = lastPergunta.cloneNode(true)
             document.getElementById('perguntas').appendChild(novaPergunta)
-            atualizaNumeracao()          
+            atualizaNumeracao()
           }
           var removePergunta = (obj) => {
             let count = document.querySelectorAll('.pergunta').length
@@ -176,6 +182,7 @@
               let el = field.parentElement
               field.value = el.querySelectorAll('.opc-resposta').length
             }
+            atualizaNumeracao()
           }
 
           //Modal padrão
