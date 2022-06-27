@@ -15,6 +15,20 @@ use App\Models\Consentimento;
 
 class PesquisaAdmController extends Controller
 {
+    /*
+    ////////////////////  APLICAÇÃO DAS PESQUISAS  //////////////////////
+    */
+    public function surv($url)
+    {
+        $pesquisa = Pesquisa::where('url_slug', $url)->get();
+        dump($pesquisa);
+    }
+
+    
+    
+    /*
+    /////////////////// ADMINISTRAÇÃO DAS PESQUISAS /////////////////////
+    */
     public function newPesquisa()
     {
         return view('admin.new-pesquisa');
@@ -26,7 +40,7 @@ class PesquisaAdmController extends Controller
 
         $pesquisa->user_id = auth()->user()->id;
         $pesquisa->titulo = $request->titulo;
-        $pesquisa->slug = Str::slug($request->titulo, '-');
+        $pesquisa->url_slug = Str::slug($request->url_slug, '-');
         $pesquisa->pesquisa_inicio  = Carbon::parse($request->pesquisa_inicio)->format('Y-m-d\TH:i');
         $pesquisa->pesquisa_final  = Carbon::parse($request->pesquisa_final)->format('Y-m-d\TH:i');
         $pesquisa->perguntas_por_tela = $request->perguntas_por_tela;

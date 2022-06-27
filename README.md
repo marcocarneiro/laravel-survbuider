@@ -24,7 +24,7 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 - <b>tabela pesquisas</b> - Armazena as pesquisas construídas, campos: <br>
 <b>user_id</b> - ID do usuário autor da pesquisa, <br>
 <b>titulo</b> - Título da pesquisa, <br>
-<b>slug</b> - Nome curto da pesquisa, <br> 
+<b>url_slug</b> - URL para acesso da pesquisa <br> 
 <b>pesquisa_inicio</b> - data e hora para início da pesquisa, <br>
 <b>pesquisa_final</b> - data e hora para o término da pesquisa, <br>
 <b>perguntas_por_tela</b> - Define quantas perguntas serão exibidas a cada tela <br>

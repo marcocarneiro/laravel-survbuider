@@ -24,6 +24,7 @@ use App\Http\Controllers\PesquisaAdmController;
 Route::get('/', function () {
     return view('index');
 });
+Route::get('/surv/{url}', [PesquisaAdmController::class, 'surv'])->name('surv');
 
 
 /*
@@ -49,11 +50,4 @@ Route::middleware([
     })->name('dashboard');    
     Route::get('/new-pesquisa', [PesquisaAdmController::class, 'newPesquisa'])->name('new-pesquisa');
     Route::post('/store-pesquisa', [PesquisaAdmController::class, 'storePesquisa'])->name('store-pesquisa');
-    /* 
-    Route::get('/list-surv', function () {
-        return view('admin.list-surv');
-    })->name('list-surv');
-    Route::get('/criar-pesquisa', function () {
-        return view('admin.criar-pesquisa');
-    })->name('criar-pesquisa'); */
 });

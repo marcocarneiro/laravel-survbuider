@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users');
             $table->string('titulo');
-            $table->string('slug');
+            $table->string('url_slug');
             $table->timestamp('pesquisa_inicio')->nullable();
             $table->timestamp('pesquisa_final')->nullable();            
             $table->integer('perguntas_por_tela');
