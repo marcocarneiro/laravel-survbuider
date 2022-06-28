@@ -33,7 +33,7 @@ Route::get('/surv/{url}', [PesquisaAdmController::class, 'surv'])->name('surv');
 |--------------------------------------------------------------------------
     /admin - Tela de Login para entrar no painel de administração
     /dashboard - (somente logado) Dashboard com acesso à construção/edição de pesquisas e relatórios
-    /criar-pesquisa - (somente logado) Construção de uma pesquisa
+    /new-pesquisa - (somente logado) Construção de uma pesquisa
 */
 Route::get('/admin', function () {
     return view('auth.login');

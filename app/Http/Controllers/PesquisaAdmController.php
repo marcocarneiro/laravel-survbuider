@@ -20,8 +20,21 @@ class PesquisaAdmController extends Controller
     */
     public function surv($url)
     {
-        $pesquisa = Pesquisa::where('url_slug', $url)->get();
-        dump($pesquisa);
+        $pesquisa = Pesquisa::where('url_slug', $url)->first();
+        $perguntas = Pergunta::where('id_pesquisa', $pesquisa->id)->get();
+        $opcoesResposta = [];
+
+        foreach($perguntas as $pergunta){
+            array_push($opcoesResposta, Opc_resposta::where('id_pergunta', $pergunta->id)->get());
+        }
+
+        $parametros = [
+            'pesquisa'=> $pesquisa, 
+            'perguntas'=>$perguntas, 
+            'opcoesResposta'=>$opcoesResposta
+        ];
+
+        return view('pesquisa', $parametros);
     }
 
     
