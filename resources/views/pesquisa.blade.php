@@ -1,3 +1,9 @@
+@extends('base-surv')
+
+@section('title', 'SurvBuilder')
+
+@section('conteudo')
+
 <p>{{$pesquisa->titulo}}</p>
 
 <ol>
@@ -14,3 +20,6 @@
     </li>
 @endforeach
 </ol>
+
+
+@endsection
