@@ -28,8 +28,13 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 <b>pesquisa_inicio</b> - data e hora para início da pesquisa, <br>
 <b>pesquisa_final</b> - data e hora para o término da pesquisa, <br>
 <b>perguntas_por_tela</b> - Define quantas perguntas serão exibidas a cada tela <br>
-<b>consentimento</b> - Booleano, define se a pesquisa terá consentimento ou não <br>
-
+<b>pag_apresentacao</b> - Booleano, define se a pesquisa terá iniciará com página de apresentação ou não <br>
+<b>txt_pag_apresentacao</b> - Conteúdo da página de apresentação <br>
+<b>consentimento</b> - Booleano, define se a pesquisa terá termo de consentimento ou não <br>
+<b>txt_consentimento</b> - Conteúdo do termo de consentimento <br>
+<b>bgimage</b> - Opcional, define uma imagem de fundo para o layout da pesquisa <br>
+<b>bgcor</b> - Opcional, define uma de fundo para a pesquisa <br>
+<b>txtcor</b> - Opcional, define uma cor para o texto da pesquisa <br>
 
 - <b>tabela consentimentos</b> - Adiciona uma ou mais telas de consentimento, se a pesquisa na tabela de pesquisas tiver essa sinalização, campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>

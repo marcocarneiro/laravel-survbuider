@@ -20,10 +20,15 @@ return new class extends Migration
             $table->string('titulo');
             $table->string('url_slug');
             $table->timestamp('pesquisa_inicio')->nullable();
-            $table->timestamp('pesquisa_final')->nullable();            
+            $table->timestamp('pesquisa_final')->nullable();
             $table->integer('perguntas_por_tela');
+            $table->boolean('pag_apresentacao')->nullable();
+            $table->text('txt_pag_apresentacao')->nullable();
             $table->boolean('consentimento')->nullable();
             $table->text('txt_consentimento')->nullable();
+            $table->string('bgimage')->nullable();
+            $table->string('bgcor')->nullable();
+            $table->string('txtcor')->nullable();
             $table->timestamps();
         });
     }

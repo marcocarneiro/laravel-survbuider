@@ -67,11 +67,53 @@
                             peer-focus:-translate-y-6">Data final da pesquisa</label>
                         </div>
                     </div>
+
+                    <!-- página de apresnetação -->
+                    <div class="grid xl:grid-cols-2 xl:gap-6">
+                        <div class="relative z-0 w-full mb-6 group pt-6">
+                            
+                            {{-- página de apresentação  --}}
+                            <label for="pag_apresentacao" class="text-slate-700 pr-4">Inclui página de apresentação </label>
+                            <input id="pag_apresentacao" type="checkbox" name="pag_apresentacao" value="0" onClick="show_pagApresent()"/>
+                        </div>
+                    </div>                        
+                    <div id="divPagApresent" class="grid xl:grid-cols-1 xl:gap-6 mb-8 hidden">
+                        <p>Inclua o conteúdo da página de apresentação:</p>
+                        
+                        {{-- conteúdo da página de apresentação  --}}
+                        <textarea name="txt_pag_apresentacao" id="txt_pag_apresentacao" class="block mb-2 text-sm font-medium
+                        text-gray-900 dark:text-gray-400" 
+                        rows="10"></textarea>
+                        <script>
+                            var show_pagApresent = ()=>{
+                                let el = document.getElementById('divPagApresent')
+                                if(el.classList.contains('hidden')){
+                                    el.classList.remove('hidden')
+                                }else{
+                                    el.classList.add('hidden')
+                                }
+                                tinymce.init({
+                                    selector: "#txt_pag_apresentacao",
+                                    height: 500,
+                                    plugins: [
+                                        'advlist', 'autolink', 'lists', 'link', 'image', 'charmap', 'preview',
+                                        'anchor', 'searchreplace', 'visualblocks', 'code', 'fullscreen',
+                                        'insertdatetime', 'media', 'table', 'help', 'wordcount'
+                                    ],
+                                    toolbar: 'undo redo | blocks | ' +
+                                    'bold italic backcolor | alignleft aligncenter ' +
+                                    'alignright alignjustify | bullist numlist outdent indent | ' +
+                                    'removeformat | help',
+                                    content_style: 'body { font-family:Helvetica,Arial,sans-serif; font-size:16px }',                                    
+                                });
+                            }
+                        </script>
+                    </div>
         
                     <div class="grid xl:grid-cols-2 xl:gap-6">
                         <div class="relative z-0 w-full mb-6 group">
                             
-                            {{-- perguntas por tela  --}}
+                            {{-- perguntas por tela --}}
                             <input type="number" name="perguntas_por_tela" id="perguntas_por_tela" class="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent 
                             border-0 border-b-2 border-gray-300 appearance-none dark:text-white dark:border-gray-600 dark:focus:border-blue-500 focus:outline-none 
                             focus:ring-0 focus:border-blue-600 peer" placeholder=" " required />
@@ -84,7 +126,7 @@
                             
                             {{-- termo de consentimento  --}}
                             <label for="consentimento" class="text-slate-700 pr-4">Inclui termo de consentimento? </label>
-                            <input id="consentimento" type="checkbox" name="consentimento" onClick="show_consent()"/>
+                            <input id="consentimento" type="checkbox" name="consentimento" value="0"  onClick="show_consent()"/>
                         </div>
                     </div>
                         
@@ -119,7 +161,31 @@
                                 });
                             }
                         </script>
-                    </div>              
+                    </div>
+                    
+                    <div class="grid xl:grid-cols-3 xl:gap-6">
+                        <div class="relative z-0 w-full mb-6 group">                            
+                            {{-- Imagem de fundo  --}}
+                            <label class="block mt-2 text-sm font-medium text-gray-900 dark:text-gray-300" for="bgimage">
+                            Upload file
+                            </label>
+                            <input name="bgimage" class="block w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer 
+                            bg-gray-50 dark:text-gray-400 focus:outline-none dark:bg-gray-700 
+                            dark:border-gray-600 dark:placeholder-gray-400" aria-describedby="bgimage_help" id="bgimage" type="file">
+                            <div class="mt-1 text-sm text-gray-500 dark:text-gray-300" id="bgimage_help">
+                                (opcional) Imagem de fundo do layout da pesquisa. Formatos .gif, .jpg e .png
+                            </div>
+                        </div>
+                        <div class="mb-6">
+                            <label for="bgcor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cor de fundo</label>
+                            <input type="color" id="bgcor" name="bgcor" >
+                        </div>
+                        <div class="mb-6">
+                            <label for="txtcor" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Cor do texto</label>
+                            <input type="color" id="txtcor" name="txtcor">
+                        </div>
+                    </div>
+
                 </div>
             </div>
 

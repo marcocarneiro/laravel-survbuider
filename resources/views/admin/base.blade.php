@@ -121,6 +121,16 @@
         <script src="https://cdn.jsdelivr.net/npm/sortablejs@latest/Sortable.min.js"></script>
         <script>
 
+          //Ajustes para campos checkbox
+          document.addEventListener('DOMContentLoaded', e => {
+          for (let checkbox of document.querySelectorAll('input[type=checkbox]')) {
+              checkbox.value = checkbox.checked ? 1 : 0;
+              checkbox.addEventListener('change', e => {
+                      e.target.value = e.target.checked ? 1 : 0;
+                });
+              }
+          });
+
           var atualizaNumeracao = ()=>{
             let $i = 0
             let spanNumeroQ = document.querySelectorAll('.numeroQ')            

@@ -57,8 +57,15 @@ class PesquisaAdmController extends Controller
         $pesquisa->pesquisa_inicio  = Carbon::parse($request->pesquisa_inicio)->format('Y-m-d\TH:i');
         $pesquisa->pesquisa_final  = Carbon::parse($request->pesquisa_final)->format('Y-m-d\TH:i');
         $pesquisa->perguntas_por_tela = $request->perguntas_por_tela;
+        $pesquisa->pag_apresentacao = $request->pag_apresentacao;
+        $pesquisa->txt_pag_apresentacao = $request->txt_pag_apresentacao;
         $pesquisa->consentimento = $request->consentimento;
         $pesquisa->txt_consentimento = $request->txt_consentimento;
+        if ($request->hasFile('bgimage')) {
+            $pesquisa->bgimage = base64_encode(file_get_contents($request->file('bgimage')));
+        }
+        $pesquisa->bgcor = $request->bgcor;
+        $pesquisa->txtcor = $request->txtcor;
 
         //Grava dados da pesquisa e retorna o registro da pesquisa
         $pesquisa->save();

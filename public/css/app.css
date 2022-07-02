@@ -3250,6 +3250,10 @@ input:checked + .toggle-bg {
     grid-template-columns: repeat(1, minmax(0, 1fr));
   }
 
+  .xl\:grid-cols-3 {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
   .xl\:gap-6 {
     gap: 1.5rem;
   }
