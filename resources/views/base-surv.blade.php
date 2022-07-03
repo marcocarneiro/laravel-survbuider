@@ -15,19 +15,17 @@
         <link rel="stylesheet" href="{{ url('/') }}/css/base.css">
         <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
-        @livewireStyles
-        
+        @livewireStyles        
 
         <!-- Scripts -->
-        <script src="{{ mix('js/app.js') }}" defer></script>     
+        <script src="{{ mix('js/app.js') }}" defer></script>
+        @yield('estilos')   
 
     </head>
-    <body> 
-
-        <div class="w-full h-full p-10 pt-24">
-            @yield('conteudo')
-        </div>        
-
+    <body class="pagina"> 
+        
+        @yield('conteudo')
+        
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
