@@ -29,8 +29,23 @@
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>
+        <script>            
             AOS.init();
+
+            var $i = 0
+            const avancar = ()=>{                
+                let perguntas = document.querySelectorAll('.pergunta')
+                for (let [index, pergunta] of perguntas.entries()) {
+                    pergunta.classList.remove('ativa')
+                    if(index == $i){                        
+                        pergunta.classList.add('ativa')
+                    }
+                }
+                $i ++
+            }
+
+            avancar()
+
         </script>
                       
     </body>
