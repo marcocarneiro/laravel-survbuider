@@ -61,8 +61,12 @@ class PesquisaAdmController extends Controller
         $pesquisa->txt_pag_apresentacao = $request->txt_pag_apresentacao;
         $pesquisa->consentimento = $request->consentimento;
         $pesquisa->txt_consentimento = $request->txt_consentimento;
-        if ($request->hasFile('bgimage')) {
-            $pesquisa->bgimage = base64_encode(file_get_contents($request->file('bgimage')));
+        if($request->file('bgimage')){
+            $randomTxt = Str::random(20);
+            $file= $request->file('bgimage');
+            $filename= $randomTxt.date('YmdHi').$file->getClientOriginalName();
+            $file-> move(public_path('public/uploads'), $filename);
+            $pesquisa->bgimage = $filename;
         }
         $pesquisa->bgcor = $request->bgcor;
         $pesquisa->txtcor = $request->txtcor;
