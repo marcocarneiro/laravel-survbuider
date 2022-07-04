@@ -13,7 +13,6 @@
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
         <link rel="stylesheet" href="{{ url('/') }}/css/base.css">
-        <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
 
         @livewireStyles        
 
@@ -28,9 +27,7 @@
         
         @livewireScripts
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
-        <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-        <script>            
-            AOS.init();
+        <script>
 
             var $i = 0
             const avancar = ()=>{                
