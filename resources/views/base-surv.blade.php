@@ -41,6 +41,17 @@
                 $i ++
             }
 
+            const retornar = ()=>{                
+                let perguntas = document.querySelectorAll('.pergunta')
+                for (let [index, pergunta] of perguntas.entries()) {
+                    pergunta.classList.remove('ativa')
+                    if(index == $i){                        
+                        pergunta.classList.add('ativa')
+                    }
+                }
+                $i --
+            }
+
             avancar()
 
         </script>
