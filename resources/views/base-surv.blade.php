@@ -29,8 +29,11 @@
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script>
 
-            var $i = 0
-            const avancar = ()=>{                
+            var $i = -1
+            const avancar = ()=>{
+                $i ++
+                showHideBt()
+                                      
                 let perguntas = document.querySelectorAll('.pergunta')
                 for (let [index, pergunta] of perguntas.entries()) {
                     pergunta.classList.remove('ativa')
@@ -38,10 +41,11 @@
                         pergunta.classList.add('ativa')
                     }
                 }
-                $i ++
             }
 
-            const retornar = ()=>{                
+            const retornar = ()=>{
+                $i --
+                showHideBt()
                 let perguntas = document.querySelectorAll('.pergunta')
                 for (let [index, pergunta] of perguntas.entries()) {
                     pergunta.classList.remove('ativa')
@@ -49,7 +53,29 @@
                         pergunta.classList.add('ativa')
                     }
                 }
-                $i --
+            }
+
+            const showHideBt = ()=>{
+                let perguntas = document.querySelectorAll('.pergunta')
+                let botoesRetorna = document.querySelectorAll('.bt-retorna')
+                let botoesAvanca = document.querySelectorAll('.bt-avanca')
+                for (let btRetorna of botoesRetorna) {
+                    if($i <= 0){
+                        btRetorna.classList.add('hidden')
+                    }else{
+                        btRetorna.classList.remove('hidden')
+                    }
+                }
+
+                for (let btAvanca of botoesAvanca) {
+                    if($i >= perguntas.length-1){
+                        btAvanca.classList.add('hidden')
+                        document.getElementById('btn_submit').classList.remove('hidden')
+                    }else{
+                        btAvanca.classList.remove('hidden')
+                        document.getElementById('btn_submit').classList.add('hidden')
+                    }                
+                }
             }
 
             avancar()
