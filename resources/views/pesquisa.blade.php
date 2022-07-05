@@ -40,8 +40,13 @@
 @section('conteudo')
 
 <div style="background-color: {{$pesquisa->bgcor}}" class="fixed w-full p-2 top-0 left-0 drop-shadow-md">
-    <h2 class="text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2>
-</div>
+    <h2 class="text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2></div>
+    <div class="etapas">
+        <span class="txt-barra">1 / 16</span>
+        <div class="moldura" style="width: 6%;">
+            <div class="barra"></div>
+        </div>
+    </div>
 
 <form>
 <div class="w-full h-full p-10 pt-24 flex justify-center">

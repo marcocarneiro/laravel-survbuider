@@ -80,6 +80,87 @@
 
             avancar()
 
+            /*
+
+            <style>
+                .etapas{
+                    position: relative;
+                    display: inline-block;
+                    width: 100px;
+                    height: 26px;
+                    top: 8px;
+                    border: 1px solid #ccc;
+                }
+                .etapas .txt-barra{
+                    display: block;
+                    position: absolute;
+                    top: 0;
+                    left: 0;
+                    z-index: 110;
+                    width: 100%;
+                    text-align: center;
+                    line-height: 26px;
+                    font-size: 12px;
+                }
+                .etapas .moldura{
+                    overflow: hidden;
+                    height: 100%;
+                }
+                .etapas .moldura .barra{
+                    width: 100%;
+                    height: 100%;
+                    background-color: #9df;
+                }
+            </style>
+
+            //barra de progressão
+            function barraProgress()
+            {
+                var etapa;
+                $('.tela').each(function(index, element) {
+                if ($(element).hasClass('ativa'))
+                {
+                    etapa = index + 1;
+                }
+                });
+                var countEtapas = $('.tela').length;
+                var porcentagem = Math.round((etapa / countEtapas)*100);
+                var texto = etapa +' / '+ countEtapas;
+                if(etapa == countEtapas){ texto = 'Finalizando...';}
+                
+                $('.etapas .txt-barra').text(texto);
+                $('.etapas .moldura').css('width', porcentagem+'%');
+            }
+
+            function avancar()
+            {
+                $('.tela').each(function(index, element) {
+                $('html, body').scrollTop(0);
+                if ($(element).hasClass('ativa')) {
+                    var nextEl = $(this).next();
+                    $(this).removeClass('ativa');
+                    $(nextEl).addClass('ativa');
+                    barraProgress();            
+                    return false;
+                }
+                });
+            }
+            function retornar()
+            {
+                $('.tela').each(function(index, element) {
+                $('html, body').scrollTop(0);
+                if ($(element).hasClass('ativa')) {
+                    var prevEl = $(this).prev();
+                    $(this).removeClass('ativa');
+                    $(prevEl).addClass('ativa');
+                    barraProgress();
+                    return false;
+                }
+                });
+            }
+
+            */
+
         </script>
                       
     </body>
