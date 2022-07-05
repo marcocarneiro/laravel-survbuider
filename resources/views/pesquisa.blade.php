@@ -16,6 +16,35 @@
             @endif
         }
 
+        .etapas{
+            position: relative;
+            display: inline-block;
+            top: 4px;
+            width: 100px;
+            height: 26px;
+            border: 1px solid #ccc;
+        }
+        .etapas .txt-barra{
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            z-index: 110;
+            width: 100%;
+            text-align: center;
+            line-height: 26px;
+            font-size: 12px;
+        }
+        .etapas .moldura{
+            overflow: hidden;
+            height: 100%;
+        }
+        .etapas .moldura .barra{
+            width: 100%;
+            height: 100%;
+            background-color: #9df;
+        }
+
         .pergunta{
             display: none;
         }
@@ -33,20 +62,24 @@
                 transform: translateY(0)
             }
         }
+
         
     </style>
 @endsection
 
 @section('conteudo')
 
-<div style="background-color: {{$pesquisa->bgcor}}" class="fixed w-full p-2 top-0 left-0 drop-shadow-md">
-    <h2 class="text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2></div>
+<div style="background-color: {{$pesquisa->bgcor}}" class="flex justify-center gap-8 fixed w-full top-0 left-0 z-50 p-2 drop-shadow-md">
+    <h2 class="w-fit text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2>
+
     <div class="etapas">
-        <span class="txt-barra">1 / 16</span>
+        <span class="txt-barra"></span>
         <div class="moldura" style="width: 6%;">
             <div class="barra"></div>
         </div>
     </div>
+</div>
+    
 
 <form>
 <div class="w-full h-full p-10 pt-24 flex justify-center">
