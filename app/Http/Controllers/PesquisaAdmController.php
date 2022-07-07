@@ -23,15 +23,18 @@ class PesquisaAdmController extends Controller
         $pesquisa = Pesquisa::where('url_slug', $url)->first();
         $perguntas = Pergunta::where('id_pesquisa', $pesquisa->id)->get();
         $opcoesResposta = [];
+        //$fieldsName = [];
 
         foreach($perguntas as $pergunta){
             array_push($opcoesResposta, Opc_resposta::where('id_pergunta', $pergunta->id)->get());
+            //array_push($fieldsName, Str::slug($pergunta->txt_pergunta, '-'));
         }
 
         $parametros = [
             'pesquisa'=> $pesquisa, 
             'perguntas'=>$perguntas, 
-            'opcoesResposta'=>$opcoesResposta
+            'opcoesResposta'=>$opcoesResposta,
+            //'fieldsName'=>$fieldsName
         ];
 
         return view('pesquisa', $parametros);
