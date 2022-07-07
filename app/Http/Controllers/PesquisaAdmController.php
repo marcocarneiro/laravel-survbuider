@@ -23,18 +23,15 @@ class PesquisaAdmController extends Controller
         $pesquisa = Pesquisa::where('url_slug', $url)->first();
         $perguntas = Pergunta::where('id_pesquisa', $pesquisa->id)->get();
         $opcoesResposta = [];
-        //$fieldsName = [];
 
         foreach($perguntas as $pergunta){
             array_push($opcoesResposta, Opc_resposta::where('id_pergunta', $pergunta->id)->get());
-            //array_push($fieldsName, Str::slug($pergunta->txt_pergunta, '-'));
         }
 
         $parametros = [
             'pesquisa'=> $pesquisa, 
             'perguntas'=>$perguntas, 
             'opcoesResposta'=>$opcoesResposta,
-            //'fieldsName'=>$fieldsName
         ];
 
         return view('pesquisa', $parametros);
@@ -82,6 +79,8 @@ class PesquisaAdmController extends Controller
         $perguntas = $request->txt_pergunta;
         $perguntasTipos = $request->tipo;
         $qtdeOpcResp = $request->qtdeOpcResp;
+        $imagensPergunta = $request->file('midia');
+
 
         for($i=0; $i < count($perguntas); $i++)
         {
@@ -89,6 +88,14 @@ class PesquisaAdmController extends Controller
             $pergunta->id_pesquisa = $reg;
             $pergunta->txt_pergunta = $perguntas[$i];
             $pergunta->tipo = $perguntasTipos[$i];
+
+            if($imagensPergunta[$i]){
+                $randomTxtImgPerg = Str::random(20);
+                $fileImgPerg= $imagensPergunta[$i];
+                $filenameImgPerg= $randomTxtImgPerg.date('YmdHi').$fileImgPerg->getClientOriginalName();
+                $fileImgPerg-> move(public_path('public/uploads'), $filenameImgPerg);
+                $pesquisa->midia = $filenameImgPerg;
+            }
 
             $pergunta->save();
             $regPergunta = $pergunta->id;

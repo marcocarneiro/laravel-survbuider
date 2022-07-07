@@ -68,7 +68,7 @@
                         </div>
                     </div>
 
-                    <!-- página de apresnetação -->
+                    <!-- página de apresentação -->
                     <div class="grid xl:grid-cols-2 xl:gap-6">
                         <div class="relative z-0 w-full mb-6 group pt-6">
                             
