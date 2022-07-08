@@ -86,11 +86,16 @@
     <?php $numQuestao = 1 ?>
     @foreach ($perguntas as $pergunta)
         <div class="pergunta md:w-full lg:w-1/2 p-6 mb-6 bg-white/75 opacity-75 rounded-lg border border-gray-200 shadow-md">
+            
+            @isset($pergunta->midia)
+            <img src="{{ url('/public/uploads') }}/{{$pergunta->midia}}" width="100%" ><br><br>
+            @endisset
+             
             <span class="font-semibold">{{$numQuestao}} ) </span>{{$pergunta->txt_pergunta}} <br>
             
             @if($pergunta->tipo == 'text')
             <div class="mb-6">
-                <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Your email</label>
+                <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"></label>
                 <input type="text" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
             </div>
             @endif
@@ -102,7 +107,7 @@
             </div>
             @endif
 
-            @if($pergunta->tipo == 'checkbox' || $pergunta->tipo == 'radio')                
+            @if($pergunta->tipo == 'checkbox')                
                 @foreach ($opcoesResposta as $opcao)
                     @for ($i = 0; $i < count($opcao); $i++)
                         @if($pergunta->id == $opcao[$i]->id_pergunta)
@@ -118,6 +123,23 @@
                 @endforeach
             @endif
 
+            @if($pergunta->tipo == 'radio')                
+                @foreach ($opcoesResposta as $opcao)
+                    @for ($i = 0; $i < count($opcao); $i++)
+                        @if($pergunta->id == $opcao[$i]->id_pergunta)
+                            <div class="flex items-center mb-4">
+                                <input type="radio" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" value="" class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                <label for="" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                                    {{ $opcao[$i]->txt_opc_resposta }}
+                                </label>
+                            </div>
+                            
+                        @endif
+                    @endfor
+                @endforeach
+            @endif
+
+     
             <div class="flex justify-between mt-6">
                 <button onClick="retornar()" type="button" class="bt-retorna flex justify-center text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
                 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">

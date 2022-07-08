@@ -79,7 +79,7 @@ class PesquisaAdmController extends Controller
         $perguntas = $request->txt_pergunta;
         $perguntasTipos = $request->tipo;
         $qtdeOpcResp = $request->qtdeOpcResp;
-        $imagensPergunta = $request->file('midia');
+        $imagensPergunta = $request->file('midia'); //Imagem para a pergunta
 
 
         for($i=0; $i < count($perguntas); $i++)
@@ -94,7 +94,7 @@ class PesquisaAdmController extends Controller
                 $fileImgPerg= $imagensPergunta[$i];
                 $filenameImgPerg= $randomTxtImgPerg.date('YmdHi').$fileImgPerg->getClientOriginalName();
                 $fileImgPerg-> move(public_path('public/uploads'), $filenameImgPerg);
-                $pesquisa->midia = $filenameImgPerg;
+                $pergunta->midia = $filenameImgPerg;
             }
 
             $pergunta->save();
