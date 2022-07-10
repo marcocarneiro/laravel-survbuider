@@ -49,55 +49,28 @@ class PesquisaAdmController extends Controller
         $resultado->data_hora_final = Carbon::parse(date('m/d/Y h:i:s a', time()))->format('Y-m-d\TH:i');        
         $resultado->completo = 1;
         
-        foreach ($request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']) as &$field) {
-            dump($field);
-        }
-        //$resultado->dados = $request->dados;
+        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
+        $resultado->dados = json_encode($dados, JSON_UNESCAPED_UNICODE);
+
+        $resultado->save();
+        return redirect('dashboard');
     }
-
-    /*
-    <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
-<b>aceite</b> - Aceite do participante após a leitura da página inicial da pesquisa <br>
-<b>ip_usuario</b> - IP do usuário no momento em que inicia a pesquisa <br>
-<b>navegador</b> - Navegador do usuário no momento em que inicia a pesquisa <br>
-<b>data_hora_inicio</b> - Data e hora quando usuário iniciou a pesquisa <br>
-<b>data_hora_final</b> - Data e hora quando usuário finalizou a pesquisa <br>
-<b>dados</b> - Respostas do usuário no formato JSON <br>
-<b>completo</b> - Booleano, indica se o usuário finalizou a pesquisa ou não <br>        
-    
-        $pesquisa->titulo = $request->titulo;
-        $pesquisa->url_slug = Str::slug($request->url_slug, '-');
-        $pesquisa->pesquisa_inicio  = Carbon::parse($request->pesquisa_inicio)->format('Y-m-d\TH:i');
-        $pesquisa->pesquisa_final  = Carbon::parse($request->pesquisa_final)->format('Y-m-d\TH:i');
-        $pesquisa->perguntas_por_tela = $request->perguntas_por_tela;
-        $pesquisa->pag_apresentacao = $request->pag_apresentacao;
-        $pesquisa->txt_pag_apresentacao = $request->txt_pag_apresentacao;
-        $pesquisa->consentimento = $request->consentimento;
-        $pesquisa->txt_consentimento = $request->txt_consentimento;
-    
-    date_default_timezone_set("America/Sao_paulo");
-			$data_hora_final = date("Y-m-d H:i:s", time());
-
-			//ajuste no texto do campo dados ao encerramento
-			$campos_inicio = '{"dados": [';
-			$campos_tratado = substr($campos,1); //remove a primeira vírgula
-			$campos_publicar = $campos_inicio. $campos_tratado.']}';
-
-			$atualizaCampo = [
-				'dados' => $campos_publicar,
-				'completo' => 1,
-				'data_hora_final' => $data_hora_final				
-			];
-			$resultados->update($id, $atualizaCampo);
-			
-			echo view('header_formularios', $dados);
-    */
-
     
     
     /*
     /////////////////// ADMINISTRAÇÃO DAS PESQUISAS /////////////////////
     */
+    public function dashboard()
+    {
+        $pesquisas = Pesquisa::get();
+
+        $parametros = [
+            'pesquisas'=> $pesquisas,
+        ];
+
+        return view('admin.dashboard', $parametros);
+    }
+
     public function newPesquisa()
     {
         return view('admin.new-pesquisa');
