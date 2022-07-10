@@ -82,6 +82,7 @@ class PesquisaAdmController extends Controller
 
         $pesquisa->user_id = auth()->user()->id;
         $pesquisa->titulo = $request->titulo;
+        $pesquisa->descricao = $request->descricao;
         $pesquisa->url_slug = Str::slug($request->url_slug, '-');
         $pesquisa->pesquisa_inicio  = Carbon::parse($request->pesquisa_inicio)->format('Y-m-d\TH:i');
         $pesquisa->pesquisa_final  = Carbon::parse($request->pesquisa_final)->format('Y-m-d\TH:i');
