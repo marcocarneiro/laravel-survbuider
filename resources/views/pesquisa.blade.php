@@ -18,7 +18,8 @@
 
         .etapas{
             position: relative;
-            display: inline-block;
+            display: none;
+            /* display: inline-block; */
             top: 4px;
             width: 100px;
             height: 26px;
@@ -79,6 +80,10 @@
         </div>
     </div>
 </div>
+
+@isset($pesquisa->txt_pag_apresentacao)
+    {{$pesquisa->txt_pag_apresentacao}}
+@endisset
     
 
 <form  action="{{ route('store-resultado') }}" method="POST">
