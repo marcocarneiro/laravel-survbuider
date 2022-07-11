@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Tempo de geração: 08-Jul-2022 às 04:50
+-- Tempo de geração: 11-Jul-2022 às 04:40
 -- Versão do servidor: 10.4.22-MariaDB
 -- versão do PHP: 8.1.2
 
@@ -94,7 +94,8 @@ INSERT INTO `migrations` (`id`, `migration`, `batch`) VALUES
 (10, '2022_05_16_140948_create_resultados_table', 1),
 (11, '2022_05_16_141307_create_options_table', 1),
 (12, '2022_05_17_153656_create_sessions_table', 1),
-(13, '2022_05_30_153016_create_consentimentos_table', 1);
+(13, '2022_05_30_153016_create_consentimentos_table', 1),
+(14, '2022_07_10_183700_add_descricao_to_pesquisas_table', 2);
 
 -- --------------------------------------------------------
 
@@ -221,19 +222,20 @@ CREATE TABLE `pesquisas` (
   `bgcor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `txtcor` varchar(255) COLLATE utf8mb4_unicode_ci DEFAULT NULL,
   `created_at` timestamp NULL DEFAULT NULL,
-  `updated_at` timestamp NULL DEFAULT NULL
+  `updated_at` timestamp NULL DEFAULT NULL,
+  `descricao` text COLLATE utf8mb4_unicode_ci DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Extraindo dados da tabela `pesquisas`
 --
 
-INSERT INTO `pesquisas` (`id`, `user_id`, `titulo`, `url_slug`, `pesquisa_inicio`, `pesquisa_final`, `perguntas_por_tela`, `pag_apresentacao`, `txt_pag_apresentacao`, `consentimento`, `txt_consentimento`, `bgimage`, `bgcor`, `txtcor`, `created_at`, `updated_at`) VALUES
-(1, 1, 'Teste 1', 'teste-1', '2022-07-03 02:38:00', '2022-07-08 02:38:00', 1, NULL, NULL, NULL, NULL, 'Aq5HlzhCtN202207030241teste.png', '#cddde4', '#4f4f4f', '2022-07-03 05:41:00', '2022-07-03 05:41:00'),
-(2, 1, 'Pesquisa 2 - Novo teste', 'teste-2', '2022-07-08 02:21:00', '2022-07-17 02:21:00', 1, 1, '<h1>P&aacute;gina de apresenta&ccedil;&atilde;o</h1>\r\n<p>Aasdfasdf asdfasdf asdfas dfasdf asdf</p>', 1, '<h1>Termo de Consentimento</h1>\r\n<p>Aasdfasf asdf asdfasdfa asdfasdf</p>', 'iFGCGaMJwKYw2TlRxPiO202207080225Z8jzfDVkcBdCuRE9HRuL202207051559bg.png', '#d3eed4', '#425245', '2022-07-08 05:25:12', '2022-07-08 05:25:12'),
-(3, 1, 'Pesquisa 2 - Novo teste', 'teste-2', '2022-07-08 02:21:00', '2022-07-17 02:21:00', 1, 1, '<h1>P&aacute;gina de apresenta&ccedil;&atilde;o</h1>\r\n<p>Aasdfasdf asdfasdf asdfas dfasdf asdf</p>', 0, '<h1>Termo de Consentimento</h1><p>Aasdfasf asdf asdfasdfa asdfasdf</p>', 'rgiQBDKdgsxNihYQnNh9202207080233Z8jzfDVkcBdCuRE9HRuL202207051559bg.png', '#d3eed4', '#425245', '2022-07-08 05:33:45', '2022-07-08 05:33:45'),
-(4, 1, 'Pesquisa 2 - Novo teste', 'teste-2', '2022-07-08 02:21:00', '2022-07-17 02:21:00', 1, 0, '<h1>Página de apresentação</h1><p>Aasdfasdf asdfasdf asdfas dfasdf asdf</p>', 0, '<h1>Termo de Consentimento</h1><p>Aasdfasf asdf asdfasdfa asdfasdf</p>', 'uAlH5jpRUQTRVvxMkOWH202207080234Z8jzfDVkcBdCuRE9HRuL202207051559bg.png', '#d3eed4', '#425245', '2022-07-08 05:34:35', '2022-07-08 05:34:35'),
-(5, 1, 'Teste 3', 'teste-3', '2022-07-08 02:47:00', '2022-07-22 02:47:00', 1, NULL, NULL, NULL, NULL, NULL, '#000000', '#000000', '2022-07-08 05:47:58', '2022-07-08 05:47:58');
+INSERT INTO `pesquisas` (`id`, `user_id`, `titulo`, `url_slug`, `pesquisa_inicio`, `pesquisa_final`, `perguntas_por_tela`, `pag_apresentacao`, `txt_pag_apresentacao`, `consentimento`, `txt_consentimento`, `bgimage`, `bgcor`, `txtcor`, `created_at`, `updated_at`, `descricao`) VALUES
+(1, 1, 'Teste 1', 'teste-1', '2022-07-03 02:38:00', '2022-07-08 02:38:00', 1, NULL, NULL, NULL, NULL, 'Aq5HlzhCtN202207030241teste.png', '#cddde4', '#4f4f4f', '2022-07-03 05:41:00', '2022-07-03 05:41:00', 'Apenas um teste para uma pesquisa'),
+(2, 1, 'Pesquisa 2 - Novo teste', 'teste-2', '2022-07-08 02:21:00', '2022-07-17 02:21:00', 1, 1, '<h1>P&aacute;gina de apresenta&ccedil;&atilde;o</h1>\r\n<p>Aasdfasdf asdfasdf asdfas dfasdf asdf</p>', 1, '<h1>Termo de Consentimento</h1>\r\n<p>Aasdfasf asdf asdfasdfa asdfasdf</p>', 'iFGCGaMJwKYw2TlRxPiO202207080225Z8jzfDVkcBdCuRE9HRuL202207051559bg.png', '#d3eed4', '#425245', '2022-07-08 05:25:12', '2022-07-08 05:25:12', 'Pesquisa com página de apresentação e consentimento'),
+(3, 1, 'Pesquisa 2 - Novo teste', 'teste-2a', '2022-07-08 02:21:00', '2022-07-17 02:21:00', 1, 1, '<h1>P&aacute;gina de apresenta&ccedil;&atilde;o</h1>\r\n<p>Aasdfasdf asdfasdf asdfas dfasdf asdf</p>', 0, '<h1>Termo de Consentimento</h1><p>Aasdfasf asdf asdfasdfa asdfasdf</p>', 'rgiQBDKdgsxNihYQnNh9202207080233Z8jzfDVkcBdCuRE9HRuL202207051559bg.png', '#d3eed4', '#425245', '2022-07-08 05:33:45', '2022-07-08 05:33:45', NULL),
+(4, 1, 'Pesquisa 2 - Novo teste', 'teste-2b', '2022-07-08 02:21:00', '2022-07-17 02:21:00', 1, 0, '<h1>Página de apresentação</h1><p>Aasdfasdf asdfasdf asdfas dfasdf asdf</p>', 0, '<h1>Termo de Consentimento</h1><p>Aasdfasf asdf asdfasdfa asdfasdf</p>', 'uAlH5jpRUQTRVvxMkOWH202207080234Z8jzfDVkcBdCuRE9HRuL202207051559bg.png', '#d3eed4', '#425245', '2022-07-08 05:34:35', '2022-07-08 05:34:35', NULL),
+(5, 1, 'Teste 3', 'teste-3', '2022-07-08 02:47:00', '2022-07-22 02:47:00', 1, NULL, NULL, NULL, NULL, NULL, '#000000', '#000000', '2022-07-08 05:47:58', '2022-07-08 05:47:58', NULL);
 
 -- --------------------------------------------------------
 
@@ -255,6 +257,16 @@ CREATE TABLE `resultados` (
   `updated_at` timestamp NULL DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
+--
+-- Extraindo dados da tabela `resultados`
+--
+
+INSERT INTO `resultados` (`id`, `id_pesquisa`, `aceite`, `ip_usuario`, `navegador`, `data_hora_inicio`, `data_hora_final`, `dados`, `completo`, `created_at`, `updated_at`) VALUES
+(3, 1, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', '2022-07-10 17:35:00', '2022-07-10 17:38:00', '{\"aaa\":\"pergunta1 - opção 1\",\"bbb\":\"jhkjhk\",\"ccc\":\"pergunta3 - opção 1\"}', 1, '2022-07-10 17:38:08', '2022-07-10 17:38:08'),
+(4, 1, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', '2022-07-10 17:38:00', '2022-07-10 17:39:00', '{\"aaa\":\"pergunta1 - opção 2\",\"bbb\":\"sdfgsdgsd\",\"ccc\":\"pergunta3 - opção 2\"}', 1, '2022-07-10 17:39:11', '2022-07-10 17:39:11'),
+(5, 1, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', '2022-07-10 17:39:00', '2022-07-10 17:39:00', '{\"aaa\":\"pergunta1 - opção 3\",\"bbb\":\"fghfjghjfgh\",\"ccc\":\"pergunta3 - opção 2\"}', 1, '2022-07-10 17:39:31', '2022-07-10 17:39:31'),
+(6, 1, 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', '2022-07-10 17:39:00', '2022-07-10 17:40:00', '{\"aaa\":\"pergunta1 - opção 3\",\"bbb\":\"sdfgsdfg\",\"ccc\":\"pergunta3 - opção 2\"}', 1, '2022-07-10 17:40:08', '2022-07-10 17:40:08');
+
 -- --------------------------------------------------------
 
 --
@@ -275,12 +287,8 @@ CREATE TABLE `sessions` (
 --
 
 INSERT INTO `sessions` (`id`, `user_id`, `ip_address`, `user_agent`, `payload`, `last_activity`) VALUES
-('JEdvUospfPcjEDpGid3Qe76R9KolixLkRfyR5MOj', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoidTBpbGxnQzczOHNPQTNocTZkWkYyTU5qSU5PVEpMR0Q4TVh3MHVSYyI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zdXJ2L3Rlc3RlLTMiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRDQk50LjIyQUU1akNWWWVaYXpSa1FPMHJUUVJxdmlLWXFjZ1lHYnljRzFXaFIuLmtmOFlSTyI7fQ==', 1657248510),
-('KiEjTepSfPWyAVibJmTCmav4g11aJxSu4Kkz8eHG', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiVVhobW1INUREdHJBeEwwbk5WNEhYNUc5bHhVQ2tuTGFJbWVRMmZTaiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zdXJ2L3Rlc3RlLTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1656874104),
-('MUXnL5SSiRxNWYbzZuJcjRwuvcZqGEZh1E2mXlZ4', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoiTGFCOVdpQnAxOW5INTdDcTBrNHRLR1R5SFNOeGNEVUk0QjJ1MTJybiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zdXJ2L3Rlc3RlLTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1656895869),
-('Rxk3X0vxbgJQqGFPNxXBkyKMJY1Bfh8dAYJ2dACa', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTozOntzOjY6Il90b2tlbiI7czo0MDoibHFpTU1OWDRCZ0NMczN1YTd2aVk0Y0FFaU5PQlo2T0JoQUt3VXBxVSI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzQ6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9zdXJ2L3Rlc3RlLTEiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX19', 1656885004),
-('yjtXdnOqykMaHpyYgY1BnKPw50F4bJxsu4wc7YoO', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoicXVIbE1HVUlaVnVnaXdNd1l3QjdwNnlaY01kWWdsVzMwZTRZemd6bSI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1657246445),
-('zDtmplmUJIXeCVTzCPSX0iGFB8Q8YsIgpJDrpw1p', NULL, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YToyOntzOjY6Il90b2tlbiI7czo0MDoialBpRWVtZUJvOHI5YWFqaFhXWDZsSTVFS2p2RmpJM3Fqekd4ZElSSCI7czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319fQ==', 1657161349);
+('E4kECQuULjTOGECsZ9vmJwulrSS7HDnEIZGAzv4f', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoiaDFqMW5FRDA1V0pmOUdHazcyMW1QUjRoUXZzd2VZcGc4Y0pzbktydCI7czozOiJ1cmwiO2E6MDp7fXM6OToiX3ByZXZpb3VzIjthOjE6e3M6MzoidXJsIjtzOjM0OiJodHRwOi8vbG9jYWxob3N0OjgwMDAvc3Vydi90ZXN0ZS0xIjt9czo2OiJfZmxhc2giO2E6Mjp7czozOiJvbGQiO2E6MDp7fXM6MzoibmV3IjthOjA6e319czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRDQk50LjIyQUU1akNWWWVaYXpSa1FPMHJUUVJxdmlLWXFjZ1lHYnljRzFXaFIuLmtmOFlSTyI7fQ==', 1657492586),
+('z8LQbZkH3K0fGjpYJcA2nmDQMnEVsuZEonTFCOlf', 1, '127.0.0.1', 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/103.0.0.0 Safari/537.36', 'YTo2OntzOjY6Il90b2tlbiI7czo0MDoibE5HOHlxTGVlcmZWNlNVQXpJZ2FCbXM5WU02ZVRTMWx6SE5BT0F1aiI7czo5OiJfcHJldmlvdXMiO2E6MTp7czozOiJ1cmwiO3M6MzE6Imh0dHA6Ly9sb2NhbGhvc3Q6ODAwMC9kYXNoYm9hcmQiO31zOjY6Il9mbGFzaCI7YToyOntzOjM6Im9sZCI7YTowOnt9czozOiJuZXciO2E6MDp7fX1zOjM6InVybCI7YTowOnt9czo1MDoibG9naW5fd2ViXzU5YmEzNmFkZGMyYjJmOTQwMTU4MGYwMTRjN2Y1OGVhNGUzMDk4OWQiO2k6MTtzOjIxOiJwYXNzd29yZF9oYXNoX3NhbmN0dW0iO3M6NjA6IiQyeSQxMCRDQk50LjIyQUU1akNWWWVaYXpSa1FPMHJUUVJxdmlLWXFjZ1lHYnljRzFXaFIuLmtmOFlSTyI7fQ==', 1657478998);
 
 -- --------------------------------------------------------
 
@@ -433,7 +441,7 @@ ALTER TABLE `filtros`
 -- AUTO_INCREMENT de tabela `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
+  MODIFY `id` int(10) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT de tabela `opc_respostas`
@@ -469,7 +477,7 @@ ALTER TABLE `pesquisas`
 -- AUTO_INCREMENT de tabela `resultados`
 --
 ALTER TABLE `resultados`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT de tabela `users`
