@@ -90,15 +90,20 @@
             }
 
             const checkApresentacao = ()=>{
-                //var testApresent = !!document.getElementById('pag_apresentacao');
-                //if(testApresent){
-                    //document.getElementById('pesquisa').style.display = 'none'                    
-                //}
-                //console.log(testApresent)
+                var testApresent = !!document.getElementById('pag_apresentacao');
+                if(testApresent){
+                    document.getElementById('pesquisa').style.display = 'none'
+                    let msg = 'Mostra Página de apresentação';
+                    if (confirm(msg)) {
+                        alert('Verifica página de Termo de consentimento')
+                    }           
+                }
+                
+                avancar() 
             }
 
             checkApresentacao()
-            //avancar()
+            
 
         </script>
                       
