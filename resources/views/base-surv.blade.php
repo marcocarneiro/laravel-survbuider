@@ -89,7 +89,17 @@
                 document.querySelector('.etapas .moldura').style.width = percentual +'%'
             }
 
-            avancar()
+            const checkApresentacao = ()=>{
+                var testApresent = !!document.getElementById('pag_apresentacao');
+                if(testApresent){
+                    document.getElementById('pesquisa').style.display = 'none'
+                    
+                }
+                console.log(testApresent)
+            }
+
+            checkApresentacao()
+            //avancar()
 
         </script>
                       
