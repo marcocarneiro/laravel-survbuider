@@ -90,12 +90,11 @@
             }
 
             const checkApresentacao = ()=>{
-                var testApresent = !!document.getElementById('pag_apresentacao');
-                if(testApresent){
-                    document.getElementById('pesquisa').style.display = 'none'
-                    
-                }
-                console.log(testApresent)
+                //var testApresent = !!document.getElementById('pag_apresentacao');
+                //if(testApresent){
+                    //document.getElementById('pesquisa').style.display = 'none'                    
+                //}
+                //console.log(testApresent)
             }
 
             checkApresentacao()
