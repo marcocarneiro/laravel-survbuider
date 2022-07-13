@@ -22,7 +22,7 @@
 
         .etapas{
             position: relative;            
-            /* display: inline-block; */
+            display: inline-block;
             top: 4px;
             width: 100px;
             height: 26px;
@@ -84,6 +84,7 @@
     </div>
 </div>
 
+<!--
 @isset($pesquisa->txt_pag_apresentacao)
     <div id="pag_apresentacao">
         <div class="w-full h-full p-10 pt-24 flex justify-center">
@@ -115,7 +116,7 @@
         </div>
     </div>
 @endisset
-
+-->
     
 <div id="pesquisa">
     <form  action="{{ route('store-resultado') }}" method="POST">

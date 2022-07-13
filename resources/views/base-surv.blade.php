@@ -56,15 +56,7 @@
                     }
                 }
                 barraProgress()
-            }
-
-            const startPesquisa = ()=>{
-                document.getElementById('pag_apresentacao').style.display = 'none'
-                document.getElementById('pag_termo_consentimento').style.display = 'none'
-                document.querySelector('.etapas').style.display = 'block'
-                document.getElementById('pesquisa').style.display = 'block'
-                avancar()
-            }
+            }            
 
             const showHideBt = ()=>{
                 let perguntas = document.querySelectorAll('.pergunta')
@@ -98,6 +90,17 @@
                 document.querySelector('.etapas .moldura').style.width = percentual +'%'
             }
 
+            avancar()
+
+            /* 
+            const startPesquisa = ()=>{
+                document.getElementById('pag_apresentacao').style.display = 'none'
+                document.getElementById('pag_termo_consentimento').style.display = 'none'
+                document.querySelector('.etapas').style.display = 'block'
+                document.getElementById('pesquisa').style.display = 'block'
+                avancar()
+            }
+            
             const checkApresentacao = ()=>{
                 var testApresent = !!document.getElementById('pag_apresentacao');
                 if(testApresent){
@@ -116,7 +119,7 @@
                 }
             }
 
-            checkApresentacao()
+            checkApresentacao() */
             
 
         </script>

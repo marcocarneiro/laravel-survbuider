@@ -23,7 +23,7 @@ class PesquisaAdmController extends Controller
     {
         $pesquisa = Pesquisa::where('url_slug', $url)->first();
         $perguntas = Pergunta::where('id_pesquisa', $pesquisa->id)->get();
-        $opcoesResposta = [];
+        $opcoesResposta = [];        
 
         foreach($perguntas as $pergunta){
             array_push($opcoesResposta, Opc_resposta::where('id_pergunta', $pergunta->id)->get());
@@ -35,8 +35,17 @@ class PesquisaAdmController extends Controller
             'opcoesResposta'=>$opcoesResposta,
         ];
 
+        if($pesquisa->txt_pag_apresentacao || $pesquisa->txt_consentimento){
+            return redirect()->route('pres', [$parametros]);
+        }
+
         return view('pesquisa', $parametros);
     }
+    public function pres($parametros = null)
+    {
+        dump($parametros);
+    }
+
 
     public function storeResultado(Request $request)
     {
