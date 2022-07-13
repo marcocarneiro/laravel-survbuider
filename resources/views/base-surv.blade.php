@@ -111,6 +111,8 @@
                 if(testConsentimento){
                     document.getElementById('pag_apresentacao').style.display = 'none'
                     document.getElementById('pag_termo_consentimento').style.display = 'block'
+                }else{
+                    startPesquisa()
                 }
             }
 
