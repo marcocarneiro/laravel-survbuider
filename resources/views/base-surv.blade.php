@@ -30,7 +30,8 @@
         <script>
 
             var $i = -1
-            const avancar = ()=>{
+            const avancar = ()=>{               
+
                 $i ++
                 showHideBt()
                                       
@@ -55,6 +56,14 @@
                     }
                 }
                 barraProgress()
+            }
+
+            const startPesquisa = ()=>{
+                document.getElementById('pag_apresentacao').style.display = 'none'
+                document.getElementById('pag_termo_consentimento').style.display = 'none'
+                document.querySelector('.etapas').style.display = 'block'
+                document.getElementById('pesquisa').style.display = 'block'
+                avancar()
             }
 
             const showHideBt = ()=>{
@@ -92,14 +101,17 @@
             const checkApresentacao = ()=>{
                 var testApresent = !!document.getElementById('pag_apresentacao');
                 if(testApresent){
+                    document.getElementById('pag_termo_consentimento').style.display = 'none'
                     document.getElementById('pesquisa').style.display = 'none'
-                    let msg = 'Mostra Página de apresentação';
-                    if (confirm(msg)) {
-                        alert('Verifica página de Termo de consentimento')
-                    }           
+                } 
+            }
+
+            const checkConsentimento = ()=>{
+                var testConsentimento = !!document.getElementById('pag_termo_consentimento');
+                if(testConsentimento){
+                    document.getElementById('pag_apresentacao').style.display = 'none'
+                    document.getElementById('pag_termo_consentimento').style.display = 'block'
                 }
-                
-                avancar() 
             }
 
             checkApresentacao()

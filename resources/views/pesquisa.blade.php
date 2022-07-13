@@ -16,9 +16,12 @@
             @endif
         }
 
-        .etapas{
-            position: relative;
+        .etapas, #pag_termo_consentimento{
             display: none;
+        }
+
+        .etapas{
+            position: relative;            
             /* display: inline-block; */
             top: 4px;
             width: 100px;
@@ -75,22 +78,43 @@
 
     <div class="etapas">
         <span class="txt-barra"></span>
-        <div class="moldura" style="width: 6%;">
+        <div class="moldura">
             <div class="barra"></div>
         </div>
     </div>
 </div>
 
-
-    <!-- Se tiver texto de apresentação carrega. Botão PROSSEGUIR - JS para ocultar
-    verifica se existe TERMO DE CONSENTIMENTO e carrega 
-    Ao clicar em ACEITO inicia pesquisa - JS para ocultar TERMO e exibir pesquisa e barra de progressão -->
-
-    @isset($pesquisa->txt_pag_apresentacao)
-        <div id="pag_apresentacao">
-            {{$pesquisa->txt_pag_apresentacao}}
+@isset($pesquisa->txt_pag_apresentacao)
+    <div id="pag_apresentacao">
+        <div class="w-full h-full p-10 pt-24 flex justify-center">
+            <div class="md:w-full lg:w-1/2 p-6 mb-6 bg-white/75 opacity-75 rounded-lg border border-gray-200 shadow-md">
+                {{$pesquisa->txt_pag_apresentacao}}
+            </div>            
         </div>
-    @endisset
+        <div class="flex justify-center mt-6">
+            <button onClick="checkConsentimento()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
+            rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                INICIAR
+            </button>
+        </div>
+    </div>
+@endisset
+
+
+@isset($pesquisa->txt_consentimento)
+    <div id="pag_termo_consentimento">
+        <div class="w-full h-full p-10 pt-24 flex justify-center">
+            <div class="md:w-full lg:w-1/2 p-6 mb-6 bg-white/75 opacity-75 rounded-lg border border-gray-200 shadow-md">
+                {{$pesquisa->txt_consentimento}}
+                <button onClick="startPesquisa()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
+                rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
+                    Aceito
+                </button>
+        </div>
+            </div>
+        </div>
+    </div>
+@endisset
 
     
 <div id="pesquisa">
