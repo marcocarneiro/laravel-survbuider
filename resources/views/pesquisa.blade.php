@@ -70,7 +70,7 @@
 
 @section('conteudo')
 
-<div style="background-color: {{$pesquisa->bgcor}}" class="flex justify-center gap-8 fixed w-full top-0 left-0 z-50 p-2 drop-shadow-md">
+<!--<div style="background-color: {{$pesquisa->bgcor}}" class="flex justify-center gap-8 fixed w-full top-0 left-0 z-50 p-2 drop-shadow-md">
     <h2 class="w-fit text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2>
 
     <div class="etapas">
@@ -79,18 +79,22 @@
             <div class="barra"></div>
         </div>
     </div>
-</div>
+</div>-->
 
-<!--
+
 @isset($pesquisa->txt_pag_apresentacao)
-    <div id="pag_apresentacao">
+    <div id="pag_apresentacao" class="hidden">
+        <div style="background-color: {{$pesquisa->bgcor}}" class="flex justify-center gap-8 fixed w-full top-0 left-0 z-50 p-2 drop-shadow-md">
+            <h2 class="w-fit text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2>
+        </div>
+    
         <div class="w-full h-full p-10 pt-24 flex justify-center">
             <div class="md:w-full lg:w-1/2 p-6 mb-6 bg-white/75 opacity-75 rounded-lg border border-gray-200 shadow-md">
                 {{$pesquisa->txt_pag_apresentacao}}
             </div>            
         </div>
         <div class="flex justify-center mt-6">
-            <button onClick="checkConsentimento()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
+            <button onClick="etapaConsentimento()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
             rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                 INICIAR
             </button>
@@ -100,11 +104,15 @@
 
 
 @isset($pesquisa->txt_consentimento)
-    <div id="pag_termo_consentimento">
+    <div id="pag_termo_consentimento" class="hidden">
+        <div style="background-color: {{$pesquisa->bgcor}}" class="flex justify-center gap-8 fixed w-full top-0 left-0 z-50 p-2 drop-shadow-md">
+            <h2 class="w-fit text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2>
+        </div>
+    
         <div class="w-full h-full p-10 pt-24 flex justify-center">
             <div class="md:w-full lg:w-1/2 p-6 mb-6 bg-white/75 opacity-75 rounded-lg border border-gray-200 shadow-md">
                 {{$pesquisa->txt_consentimento}}
-                <button onClick="startPesquisa()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
+                <button onClick="etapaQuestionario()" type="button" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium 
                 rounded-lg text-sm px-5 py-2.5 mr-2 mb-2 dark:bg-blue-600 dark:hover:bg-blue-700 focus:outline-none dark:focus:ring-blue-800">
                     Aceito
                 </button>
@@ -113,9 +121,19 @@
         </div>
     </div>
 @endisset
--->
+
     
-<div id="questionario">
+<div id="questionario" class="hidden">
+    <div style="background-color: {{$pesquisa->bgcor}}" class="flex justify-center gap-8 fixed w-full top-0 left-0 z-50 p-2 drop-shadow-md">
+        <h2 class="w-fit text-center font-semibold text-2xl">{{$pesquisa->titulo}}</h2>
+
+        <div class="etapas">
+            <span class="txt-barra"></span>
+            <div class="moldura">
+                <div class="barra"></div>
+            </div>
+        </div>
+    </div>
     <form  action="{{ route('store-resultado') }}" method="POST">
         @csrf
         <input type="hidden" name="id_pesquisa" value="{{$pesquisa->id}}">

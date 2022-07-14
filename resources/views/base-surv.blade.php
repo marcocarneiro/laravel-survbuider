@@ -29,9 +29,12 @@
         <script src="https://unpkg.com/flowbite@1.4.6/dist/flowbite.js"></script>
         <script>
 
+            var divApresentacao = document.getElementById('pag_apresentacao')
+            var divConsentimento = document.getElementById('pag_termo_consentimento')
+            var divQuestionario = document.getElementById('questionario')
             var $i = -1
-            const avancar = ()=>{               
 
+            const avancar = ()=>{
                 $i ++
                 showHideBt()
                                       
@@ -90,44 +93,30 @@
                 document.querySelector('.etapas .moldura').style.width = percentual +'%'
             }
 
+            //Avança para etapa termo de consentimento
+            const etapaConsentimento = ()=>{
+                divApresentacao.classList.add('hidden')
+                divConsentimento.classList.remove('hidden')
+            }
+
+            //Avança para etapa do questionario
+            const etapaQuestionario = ()=>{
+                divConsentimento.classList.add('hidden')
+                divQuestionario.classList.remove('hidden')    
+            }
             
-            //USAR ELSE IF DO JS PARA CONTROLAR A ORDEM DE CARREGAMENTO DOS ELEMENTOS
-            // ID pag_apresentacao
-            // ID pag_termo_consentimento
-            // ID questionario
-            //   https://www.w3schools.com/js/js_if_else.asp
+            var testApresentacao = !!divApresentacao
+            var testConsentimento = !!divConsentimento
+            var testQuestionario = !!divQuestionario
+            if (testApresentacao) {
+                divApresentacao.classList.remove('hidden')
+            } else if (testConsentimento) {
+                divConsentimento.classList.remove('hidden')
+            } else {
+                divQuestionario.classList.remove('hidden')
+            }
             avancar()
 
-
-
-            /* 
-            const startPesquisa = ()=>{
-                document.getElementById('pag_apresentacao').style.display = 'none'
-                document.getElementById('pag_termo_consentimento').style.display = 'none'
-                document.querySelector('.etapas').style.display = 'block'
-                document.getElementById('pesquisa').style.display = 'block'
-                avancar()
-            }
-            
-            const checkApresentacao = ()=>{
-                var testApresent = !!document.getElementById('pag_apresentacao');
-                if(testApresent){
-                    document.getElementById('pag_termo_consentimento').style.display = 'none'
-                    document.getElementById('pesquisa').style.display = 'none'
-                } 
-            }
-
-            const checkConsentimento = ()=>{
-                var testConsentimento = !!document.getElementById('pag_termo_consentimento');
-                if(testConsentimento){
-                    document.getElementById('pag_apresentacao').style.display = 'none'
-                    document.getElementById('pag_termo_consentimento').style.display = 'block'
-                }else{
-                    startPesquisa()
-                }
-            }
-
-            checkApresentacao() */
             
 
         </script>
