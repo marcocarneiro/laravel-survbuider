@@ -90,7 +90,15 @@
                 document.querySelector('.etapas .moldura').style.width = percentual +'%'
             }
 
+            
+            //USAR ELSE IF DO JS PARA CONTROLAR A ORDEM DE CARREGAMENTO DOS ELEMENTOS
+            // ID pag_apresentacao
+            // ID pag_termo_consentimento
+            // ID questionario
+            //   https://www.w3schools.com/js/js_if_else.asp
             avancar()
+
+
 
             /* 
             const startPesquisa = ()=>{

@@ -16,10 +16,7 @@
             @endif
         }
 
-        .etapas, #pag_termo_consentimento{
-            display: none;
-        }
-
+        
         .etapas{
             position: relative;            
             display: inline-block;
@@ -118,7 +115,7 @@
 @endisset
 -->
     
-<div id="pesquisa">
+<div id="questionario">
     <form  action="{{ route('store-resultado') }}" method="POST">
         @csrf
         <input type="hidden" name="id_pesquisa" value="{{$pesquisa->id}}">
