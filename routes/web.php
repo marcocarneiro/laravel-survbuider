@@ -25,10 +25,10 @@ Route::get('/', function () {
     return view('index');
 });
 Route::get('/surv/{url}', [PesquisaAdmController::class, 'surv'])->name('surv');
-Route::get('/pres/{parametros?}', [PesquisaAdmController::class, 'pres'])->name('pres');
+//Route::get('/pres', [PesquisaAdmController::class, 'pres'])->name('pres');
 Route::post('/store-resultado', [PesquisaAdmController::class, 'storeResultado'])->name('store-resultado');
 
-/*Route::post('/store-pesquisa', [PesquisaAdmController::class, 'storePesquisa'])->name('store-pesquisa');
+/*
 |--------------------------------------------------------------------------
 | Rotas para as telas de administração
 |--------------------------------------------------------------------------

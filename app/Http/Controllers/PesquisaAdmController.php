@@ -35,17 +35,22 @@ class PesquisaAdmController extends Controller
             'opcoesResposta'=>$opcoesResposta,
         ];
 
-        if($pesquisa->txt_pag_apresentacao || $pesquisa->txt_consentimento){
-            return redirect()->route('pres', [$parametros]);
-        }
+        /* if($pesquisa->txt_pag_apresentacao || $pesquisa->txt_consentimento){
+            return redirect()->route('pres')
+            ->with('pesquisa', $pesquisa);
+        } */
 
         return view('pesquisa', $parametros);
     }
-    public function pres($parametros = null)
-    {
-        dump($parametros);
-    }
 
+    /* public function pres(Request $request)
+    {
+        $pesquisa = $request->session()->get( 'pesquisa' );
+        $parametros = [
+            'pesquisa'=> $pesquisa,
+        ];
+        return view('apresentacao', $parametros);
+    } */
 
     public function storeResultado(Request $request)
     {
