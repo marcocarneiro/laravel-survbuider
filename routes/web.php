@@ -18,14 +18,12 @@ use App\Http\Controllers\PesquisaAdmController;
 |--------------------------------------------------------------------------
 | Rotas para as telas de pesquisa
 |--------------------------------------------------------------------------
-    '/' - Carrega a tela principal, se existir pesquisa ativa mostra botão ENTRAR, caso contrário mostra  msg genérica
-
 */
 Route::get('/', function () {
     return view('index');
 });
 Route::get('/surv/{url}', [PesquisaAdmController::class, 'surv'])->name('surv');
-//Route::get('/pres', [PesquisaAdmController::class, 'pres'])->name('pres');
+Route::get('/conclusao_pesquisa', [PesquisaAdmController::class, 'conclusao_pesquisa'])->name('conclusao_pesquisa');
 Route::post('/store-resultado', [PesquisaAdmController::class, 'storeResultado'])->name('store-resultado');
 
 /*

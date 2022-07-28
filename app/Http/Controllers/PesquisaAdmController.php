@@ -35,22 +35,8 @@ class PesquisaAdmController extends Controller
             'opcoesResposta'=>$opcoesResposta,
         ];
 
-        /* if($pesquisa->txt_pag_apresentacao || $pesquisa->txt_consentimento){
-            return redirect()->route('pres')
-            ->with('pesquisa', $pesquisa);
-        } */
-
         return view('pesquisa', $parametros);
     }
-
-    /* public function pres(Request $request)
-    {
-        $pesquisa = $request->session()->get( 'pesquisa' );
-        $parametros = [
-            'pesquisa'=> $pesquisa,
-        ];
-        return view('apresentacao', $parametros);
-    } */
 
     public function storeResultado(Request $request)
     {
@@ -67,7 +53,12 @@ class PesquisaAdmController extends Controller
         $resultado->dados = json_encode($dados, JSON_UNESCAPED_UNICODE);
 
         $resultado->save();
-        return redirect('dashboard');
+        return redirect('conclusao_pesquisa');
+    }
+
+    public function conclusao_pesquisa()
+    {
+        return view('conclusao_pesquisa');
     }
     
     
@@ -125,7 +116,6 @@ class PesquisaAdmController extends Controller
         $qtdeOpcResp = $request->qtdeOpcResp;
         $imagensPergunta = $request->file('midia'); //Imagem para a pergunta
 
-
         for($i=0; $i < count($perguntas); $i++)
         {
             $pergunta = new Pergunta;
@@ -133,7 +123,7 @@ class PesquisaAdmController extends Controller
             $pergunta->txt_pergunta = $perguntas[$i];
             $pergunta->tipo = $perguntasTipos[$i];
 
-            if($imagensPergunta[$i]){
+            if(isset($imagensPergunta[$i])){
                 $randomTxtImgPerg = Str::random(20);
                 $fileImgPerg= $imagensPergunta[$i];
                 $filenameImgPerg= $randomTxtImgPerg.date('YmdHi').$fileImgPerg->getClientOriginalName();
