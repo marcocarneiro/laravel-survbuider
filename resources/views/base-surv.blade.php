@@ -116,7 +116,6 @@
                 divQuestionario.classList.remove('hidden')
             }
             avancar()
-
             
 
         </script>

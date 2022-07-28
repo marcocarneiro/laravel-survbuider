@@ -68,11 +68,9 @@ class PesquisaAdmController extends Controller
     public function dashboard()
     {
         $pesquisas = Pesquisa::get();
-
         $parametros = [
             'pesquisas'=> $pesquisas,
         ];
-
         return view('admin.dashboard', $parametros);
     }
 
@@ -150,7 +148,34 @@ class PesquisaAdmController extends Controller
                 }
             }
         }
-
         return redirect('dashboard');
+    }
+
+    public function resultados($id_pesquisa)
+    {
+        $resultados = Resultado::where('id_pesquisa', $id_pesquisa)->get();
+        $pesquisa = Pesquisa::where('id', $id_pesquisa)->first();
+
+        $parametros = [
+            'resultados'=> $resultados,
+            'pesquisa' => $pesquisa,
+        ];
+
+        return view('admin.resultado', $parametros);
+    }
+
+    public function editar($id)
+    {
+        dd('EDITAR: ' .$id);
+    }
+
+    public function duplicar($id)
+    {
+        dd('DUPLICAR: ' .$id);
+    }
+
+    public function excluir($id)
+    {
+        dd('EXCLUIR: ' .$id);
     }
 }
