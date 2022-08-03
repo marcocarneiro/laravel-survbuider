@@ -151,7 +151,7 @@ class PesquisaAdmController extends Controller
         return redirect('dashboard');
     }
 
-    public function resultados($id_pesquisa)
+    public function resultados(int $id_pesquisa, int $metadados = null)
     {
         $resultados = Resultado::where('id_pesquisa', $id_pesquisa)->get();
         $pesquisa = Pesquisa::where('id', $id_pesquisa)->first();
@@ -161,20 +161,26 @@ class PesquisaAdmController extends Controller
             'pesquisa' => $pesquisa,
         ];
 
-        return view('admin.resultado', $parametros);
+        //Se o parâmetro opcional $metadados com valor 1 for passado,
+        //carrega a VIEW resultfulldata com METADADOS
+        if($metadados == 1){
+            return view('admin.resultfulldata', $parametros);
+        }else{            
+            return view('admin.resultado', $parametros);
+        }        
     }
 
-    public function editar($id)
+    public function editar(int $id)
     {
         dd('EDITAR: ' .$id);
     }
 
-    public function duplicar($id)
+    public function duplicar(int $id)
     {
         dd('DUPLICAR: ' .$id);
     }
 
-    public function excluir($id)
+    public function excluir(int $id)
     {
         dd('EXCLUIR: ' .$id);
     }

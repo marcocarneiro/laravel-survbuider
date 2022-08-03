@@ -47,7 +47,7 @@ Route::middleware([
     Route::get('/dashboard', [PesquisaAdmController::class, 'dashboard'])->name('dashboard');
     Route::get('/new-pesquisa', [PesquisaAdmController::class, 'newPesquisa'])->name('new-pesquisa');
     Route::post('/store-pesquisa', [PesquisaAdmController::class, 'storePesquisa'])->name('store-pesquisa');
-    Route::get('/resultados/{id}', [PesquisaAdmController::class, 'resultados'])->name('resultados');
+    Route::get('/resultados/{id}/{metadados?}', [PesquisaAdmController::class, 'resultados'])->name('resultados');
     Route::get('/editar/{id}', [PesquisaAdmController::class, 'editar'])->name('editar');
     Route::get('/duplicar/{id}', [PesquisaAdmController::class, 'duplicar'])->name('duplicar');
     Route::get('/excluir/{id}', [PesquisaAdmController::class, 'excluir'])->name('excluir');
