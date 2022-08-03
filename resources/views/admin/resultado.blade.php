@@ -21,8 +21,8 @@
             @foreach ($resultados as $resultado)
                 <tr>
                     <td>{{$resultado->ip_usuario}}</td>
-                    <td>{{$resultado->data_hora_inicio}}</td>
-                    <td>{{$resultado->data_hora_final}}</td>
+                    <td>{{Carbon\Carbon::parse($resultado->data_hora_inicio)->format('d/m/Y H:i:s') }}</td>
+                    <td>{{Carbon\Carbon::parse($resultado->data_hora_final)->format('d/m/Y H:i:s') }}</td>
                     <td>{{$resultado->dados}}</td>
                     <td>{{$resultado->completo}}</td>             
                 </tr>                    
