@@ -50,6 +50,7 @@ class PesquisaAdmController extends Controller
         $resultado->completo = 1;
         
         $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
+        //RESOLVER: NÃO ACUMULA EM RESPOSTAS DO TIPO CHECKBOX
         $resultado->dados = json_encode($dados, JSON_UNESCAPED_UNICODE);
 
         $resultado->save();
