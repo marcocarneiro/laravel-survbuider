@@ -5,10 +5,47 @@
 @section('conteudo')
 
 <?php
-    $dados = '';
-    foreach ($resultados as $result){
-        $dados = json_decode($result->dados, JSON_UNESCAPED_UNICODE);
+    $dados = array(
+        'perguntas' => array(
+            'questao-1' => 'pergunta 1 - checkbox',
+            'questao-2' => 'pergunta 2 - number',
+            'questao-3' => 'pergunta 3 - radio'
+        ),
+        'respostas' => array(
+            'content-1a' => 'opção a',
+            'content-1b' => 'opção b'
+        ),
+        array('content-2' => '10'),
+        array('content-3' => 'sim')
+    );
+
+    $response = json_encode($dados, JSON_UNESCAPED_UNICODE);
+    dd($response);
+
+    /* $dados = '{
+        "perguntas": [{
+            "questao-1": "pergunta 1 - checkbox",
+            "questao-2": "pergunta 2 - number",
+            "questao-3": "pergunta 3 - radio"
+        }],
+        "respostas": [{
+                "content-1a": "opção a",
+                "content-1b": "opção b"
+            },
+            {
+                "content-2": "10"
+            },
+            {
+                "content-3": "sim"
+            }
+        ]
     }
+    ';
+    $dadosResp = json_encode($dados, JSON_UNESCAPED_UNICODE);
+    dd($dadosResp); */
+    /* foreach ($resultados as $result){
+        $dados = json_decode($result->dados, JSON_UNESCAPED_UNICODE);
+    } */
     //dd($dados['results'][0]);
 ?>
 
