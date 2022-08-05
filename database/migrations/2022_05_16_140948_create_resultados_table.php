@@ -22,7 +22,6 @@ return new class extends Migration
             $table->string('navegador');
             $table->timestamp('data_hora_inicio')->nullable();
             $table->timestamp('data_hora_final')->nullable();
-            $table->json('dados');
             $table->boolean('completo');
             $table->timestamps();
         });

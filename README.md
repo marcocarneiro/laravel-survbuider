@@ -59,15 +59,19 @@ campos: <br>
 <b>id_pergunta</b> - A qual pergunta pertence, <br>
 <b>txt_opc_resposta</b> - Texto da resposta <br>
 
-- <b>tabela resultados</b> - Respostas dos participantes da pesquisa, esta tabela gera os relatórios e gráficos das pesquisas - campos: <br>
+- <b>tabela resultados</b> - Dados dos participantes (IP, hora, etc) - campos: <br>
 <b>id_pesquisa</b> - A qual pesquisa pertence, <br>
 <b>aceite</b> - Aceite do participante após a leitura da página inicial da pesquisa <br>
 <b>ip_usuario</b> - IP do usuário no momento em que inicia a pesquisa <br>
 <b>navegador</b> - Navegador do usuário no momento em que inicia a pesquisa <br>
 <b>data_hora_inicio</b> - Data e hora quando usuário iniciou a pesquisa <br>
 <b>data_hora_final</b> - Data e hora quando usuário finalizou a pesquisa <br>
-<b>dados</b> - Respostas do usuário no formato JSON <br>
 <b>completo</b> - Booleano, indica se o usuário finalizou a pesquisa ou não <br>
+
+- <b>tabela result_dados</b> - Respostas dos participantes da pesquisa, esta tabela gera os relatórios e gráficos das pesquisas - campos: <br>
+<b>id_resultados</b> - A qual parcipante pertence, <br>
+<b>id_pergunta</b> - Identificação da Pergunta <br>
+<b>Resposta</b> - Resposta do participante <br>
 
 - <b>tabela options</b> - Tabela de configuração da ferramenta e layout - campos: <br>
 <b>logo</b> - Imagem em formato de texto (base_64) do logotipo da instituição aplicadora da pesquisa, <br>

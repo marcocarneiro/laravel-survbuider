@@ -20,5 +20,9 @@ class Pergunta extends Model
         return $this->hasMany(Opc_resposta::class);
     }
 
+    public function result_dado()
+    {
+        return $this->hasMany(Result_dado::class);
+    }
 
 }
