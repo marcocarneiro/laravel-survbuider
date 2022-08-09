@@ -48,13 +48,20 @@ class PesquisaAdmController extends Controller
         $resultado->data_hora_inicio = Carbon::parse($request->data_hora_inicio)->format('Y-m-d\TH:i');
         $resultado->data_hora_final = Carbon::parse(date('m/d/Y h:i:s a', time()))->format('Y-m-d\TH:i');        
         $resultado->completo = 1;
-        
-        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
-        //RESOLVER: NÃO ACUMULA EM RESPOSTAS DO TIPO CHECKBOX
-        $resultado->dados = json_encode($dados, JSON_UNESCAPED_UNICODE);
 
-        $resultado->save();
-        return redirect('conclusao_pesquisa');
+        //$resultado->save();
+        //$reg = $resultado->id;
+
+        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
+        var_dump(key($dados));
+        /* foreach($dados as $dado){
+           dd($dado);
+        } */
+
+        //$dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
+        //RESOLVER: NÃO ACUMULA EM RESPOSTAS DO TIPO CHECKBOX
+        //$resultado->dados = json_encode($dados, JSON_UNESCAPED_UNICODE);        
+        //return redirect('conclusao_pesquisa');
     }
 
     public function conclusao_pesquisa()
