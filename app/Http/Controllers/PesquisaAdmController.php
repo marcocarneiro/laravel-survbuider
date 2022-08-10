@@ -53,14 +53,11 @@ class PesquisaAdmController extends Controller
         //$reg = $resultado->id;
 
         $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
-        var_dump(key($dados));
-        /* foreach($dados as $dado){
-           dd($dado);
-        } */
-
-        //$dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
-        //RESOLVER: NÃO ACUMULA EM RESPOSTAS DO TIPO CHECKBOX
-        //$resultado->dados = json_encode($dados, JSON_UNESCAPED_UNICODE);        
+        
+        foreach($dados as $dado){
+            var_dump($dado);
+        }
+        
         //return redirect('conclusao_pesquisa');
     }
 
