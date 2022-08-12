@@ -13,6 +13,7 @@ use App\Models\Filtro;
 use App\Models\Opc_resposta;
 use App\Models\Consentimento;
 use App\Models\Resultado;
+use App\Models\Result_dado;
 
 class PesquisaAdmController extends Controller
 {
@@ -49,16 +50,32 @@ class PesquisaAdmController extends Controller
         $resultado->data_hora_final = Carbon::parse(date('m/d/Y h:i:s a', time()))->format('Y-m-d\TH:i');        
         $resultado->completo = 1;
 
-        //$resultado->save();
-        //$reg = $resultado->id;
+        $resultado->save();
+        $reg = $resultado->id;
 
-        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
+        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);        
         
         foreach($dados as $dado){
+            $result_dados = new Result_dado;
+            $result_dados->id_resultados = $reg;
+            $result_dados->id_pergunta = array_search ($dado, $dados);
+            $result_dados->resposta = $dado;
+
+            $result_dados->save();
+            /* echo $key  .'<br>';
             var_dump($dado);
+            echo '<br>'; */
         }
+
+        /*
+        <b>id_resultados</b> - A qual parcipante pertence, <br>
+        <b>id_pergunta</b> - Identificação da Pergunta <br>
+        <b>Resposta</b> - Resposta do participante <br> 
         
-        //return redirect('conclusao_pesquisa');
+        */
+        
+        
+        return redirect('conclusao_pesquisa');
     }
 
     public function conclusao_pesquisa()
