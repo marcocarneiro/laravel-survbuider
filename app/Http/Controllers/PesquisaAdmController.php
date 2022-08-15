@@ -50,21 +50,24 @@ class PesquisaAdmController extends Controller
         $resultado->data_hora_final = Carbon::parse(date('m/d/Y h:i:s a', time()))->format('Y-m-d\TH:i');        
         $resultado->completo = 1;
 
-        $resultado->save();
-        $reg = $resultado->id;
+        //$resultado->save();
+        //$reg = $resultado->id;
 
-        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);        
+        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
         
-        foreach($dados as $dado){
-            $result_dados = new Result_dado;
-            $result_dados->id_resultados = $reg;
-            $result_dados->id_pergunta = array_search ($dado, $dados);
-            $result_dados->resposta = $dado;
+        
+        
+        foreach($dados as $dado){ 
+            dd($dado);           
+            /* $result_dados = new Result_dado;
+            $result_dados->id_resultados = $reg; */
+            //$result_dados->id_pergunta = array_search ($dado, $dados);
 
-            $result_dados->save();
-            /* echo $key  .'<br>';
-            var_dump($dado);
-            echo '<br>'; */
+            /* $result_dados->id_pergunta = $dado->id_pergunta;
+            //$result_dados->resposta = $dado;
+            $result_dados->resposta = 'Aqui é um ARRAY';
+
+            $result_dados->save(); */
         }
 
         /*
