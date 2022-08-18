@@ -139,22 +139,24 @@
                 <span class="font-semibold">{{$numQuestao}} ) </span>{{$pergunta->txt_pergunta}} <br>
                 <!--<input type="hidden" name="pergunta[]" value="{{$pergunta->id}}">-->
                 
-                <input type="hidden" name="id_pergunta[]" value="{{$pergunta->id}}">               
+                <input type="hidden" name="id_pergunta[]" value="{{$pergunta->id}}">            
                 
                 
                 @if($pergunta->tipo == 'text')
                 <div class="mb-6">                    
                     <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300"></label>
-                    <!--<input type="text" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">-->
-                    <input type="text" name="pergunta[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <input type="text" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500
+                     dark:focus:border-blue-500">
+                    <!--<input type="text" name="pergunta[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">-->
                 </div>
                 @endif
 
                 @if($pergunta->tipo == 'number')
                 <div class="mb-6">
                     <label for="" class="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Sua resposta</label>
-                    <!--<input type="number" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">-->
-                    <input type="number" name="pergunta[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                    <input type="number" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 
+                    dark:focus:border-blue-500">
+                    <!--<input type="number" name="pergunta[]" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">-->
                 </div>
                 @endif
 
@@ -163,10 +165,11 @@
                         @for ($i = 0; $i < count($opcao); $i++)
                             @if($pergunta->id == $opcao[$i]->id_pergunta)
                                 <div class="flex items-center mb-4">
-                                    <!--<input  name="{{Str::slug($pergunta->txt_pergunta, '-')}}[]" type="{{$pergunta->tipo}}" value="{{ $opcao[$i]->txt_opc_resposta }}"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >-->
-                                    <input  name="pergunta[]" type="{{$pergunta->tipo}}" value="{{ $opcao[$i]->txt_opc_resposta }}"
-                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >                     
+                                    <input  name="{{Str::slug($pergunta->txt_pergunta, '-')}}[]" type="{{$pergunta->tipo}}" value="{{ $opcao[$i]->txt_opc_resposta }}"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 
+                                    dark:border-gray-600" >
+                                    <!--<input  name="pergunta[]" type="{{$pergunta->tipo}}" value="{{ $opcao[$i]->txt_opc_resposta }}"
+                                    class="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600" >  -->                   
                                     <label for="" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         {{ $opcao[$i]->txt_opc_resposta }}
                                     </label>
@@ -181,10 +184,10 @@
                         @for ($i = 0; $i < count($opcao); $i++)
                             @if($pergunta->id == $opcao[$i]->id_pergunta)
                                 <div class="flex items-center mb-4">
-                                    <!--<input type="radio" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" value="{{ $opcao[$i]->txt_opc_resposta }}"
-                                    class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">-->
-                                    <input type="radio" name="pergunta[]" value="{{ $opcao[$i]->txt_opc_resposta }}"
+                                    <input type="radio" name="{{Str::slug($pergunta->txt_pergunta, '-')}}" value="{{ $opcao[$i]->txt_opc_resposta }}"
                                     class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">
+                                    <!--<input type="radio" name="pergunta[]" value="{{ $opcao[$i]->txt_opc_resposta }}"
+                                    class="w-4 h-4 border-gray-300 focus:ring-2 focus:ring-blue-300 dark:focus:ring-blue-600 dark:focus:bg-blue-600 dark:bg-gray-700 dark:border-gray-600">-->
                                     <label for="" class="ml-2 text-sm font-medium text-gray-900 dark:text-gray-300">
                                         {{ $opcao[$i]->txt_opc_resposta }}
                                     </label>

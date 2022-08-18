@@ -14,10 +14,6 @@ Construtor de pesquisas com dashboard para criação, edição e visualização 
 - Antes de utilizar, pode-se criar uma pesquisa de teste apenas para verificar o funcionamento da ferramenta
 - Tipos de usuário: <b>Administrador</b> que pode criar e editar pesquisas / <b>Leitor</b> que pode apenas visualizar os resultados
 
-## Componentes Livewire
-- <b>NovaPesquisa.php</b> - Grava e trata dos dados da pesquisa (nome, datas, URL da pesquisa, termo de consentimento, etc).  
-- <b>ShowPerguntas.php</b> - Grava e trata das perguntas da pesquisa (filtradas e padrão).  
-
 ## Tabelas
 - <b>tabela users</b> - Tabela padrão de usuários criada pelo Liviwire / Laravel<br>
 

@@ -53,12 +53,40 @@ class PesquisaAdmController extends Controller
         //$resultado->save();
         //$reg = $resultado->id;
 
-        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip']);
+        $perguntas_id = $request->id_pergunta;
+        $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip', 'id_pergunta']);
         
+        //dd($dados, $perguntas_id);
+        $i = 0;
+        foreach($dados as $dado){
+            if(gettype($dado) == 'array'){
+                foreach($dado as $dad){
+                    echo 'ID do resultado' .'<br>';
+                    echo 'ID da pergunta: ' .$perguntas_id[$i] .'<br>';
+                    echo 'RESPOSTA: ' .$dad .' grava dados<br><br>';
+                }
+            }else{
+                echo 'ID do resultado' .'<br>';
+                echo 'ID da pergunta: ' .$perguntas_id[$i] .'<br>';
+                echo 'RESPOSTA: ' .$dado .' grava dados<br><br>';
+            }
+            $i ++;
+        }
+        echo 'EXCLUIR COMENTÁRIOS, DESCOMENTAR AS LINHAS 53 E 54 E FAZER O REDIRECIONAMENTO';
+        //return redirect('conclusao_pesquisa');
+
+        /* for ($i = 0; $i <= count($perguntas_id); $i++) {
+            echo $dados[$i];
+        } */
+
+        /*
+        <b>id_resultados</b> - A qual parcipante pertence, <br>
+        <b>id_pergunta</b> - Identificação da Pergunta <br>
+        <b>Resposta</b> - Resposta do participante <br>        
+        */
         
-        
-        foreach($dados as $dado){ 
-            dd($dado);           
+        //foreach($dados as $dado){ 
+            //dd($dado);           
             /* $result_dados = new Result_dado;
             $result_dados->id_resultados = $reg; */
             //$result_dados->id_pergunta = array_search ($dado, $dados);
@@ -68,17 +96,7 @@ class PesquisaAdmController extends Controller
             $result_dados->resposta = 'Aqui é um ARRAY';
 
             $result_dados->save(); */
-        }
-
-        /*
-        <b>id_resultados</b> - A qual parcipante pertence, <br>
-        <b>id_pergunta</b> - Identificação da Pergunta <br>
-        <b>Resposta</b> - Resposta do participante <br> 
-        
-        */
-        
-        
-        return redirect('conclusao_pesquisa');
+        //}        
     }
 
     public function conclusao_pesquisa()
