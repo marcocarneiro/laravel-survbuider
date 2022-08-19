@@ -4,14 +4,6 @@
 
 @section('conteudo')
 
-<?php
-    foreach ($resultados as $result){
-        //Retorna um array com os nomes das chaves do JSON (perguntas)
-        $dados = array_keys(json_decode($result->dados, JSON_UNESCAPED_UNICODE));
-        dd($dados);
-    }
-?>
-
 <h5 class="mb-2 text-2xl text-center m-5 font-bold tracking-tight text-gray-600 dark:text-white">{{$pesquisa->titulo}}</h5>
 <div class="flex justify-center">    
     <div class="w-5/6 p-5 mb-10 bg-white rounded-lg border border-gray-200 shadow-md dark:bg-gray-800 dark:border-gray-700">

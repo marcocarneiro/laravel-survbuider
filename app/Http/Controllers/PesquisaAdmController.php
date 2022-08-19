@@ -50,53 +50,32 @@ class PesquisaAdmController extends Controller
         $resultado->data_hora_final = Carbon::parse(date('m/d/Y h:i:s a', time()))->format('Y-m-d\TH:i');        
         $resultado->completo = 1;
 
-        //$resultado->save();
-        //$reg = $resultado->id;
+        $resultado->save();
+        $reg = $resultado->id;
 
         $perguntas_id = $request->id_pergunta;
         $dados = $request->except(['_token', 'id_pesquisa', 'data_hora_inicio', 'ip', 'id_pergunta']);
         
-        //dd($dados, $perguntas_id);
         $i = 0;
         foreach($dados as $dado){
             if(gettype($dado) == 'array'){
                 foreach($dado as $dad){
-                    echo 'ID do resultado' .'<br>';
-                    echo 'ID da pergunta: ' .$perguntas_id[$i] .'<br>';
-                    echo 'RESPOSTA: ' .$dad .' grava dados<br><br>';
+                    $result_dados = new Result_dado;
+                    $result_dados->id_resultados = $reg;
+                    $result_dados->id_pergunta = $perguntas_id[$i];
+                    $result_dados->resposta = $dad;
+                    $result_dados->save();
                 }
             }else{
-                echo 'ID do resultado' .'<br>';
-                echo 'ID da pergunta: ' .$perguntas_id[$i] .'<br>';
-                echo 'RESPOSTA: ' .$dado .' grava dados<br><br>';
+                $result_dados = new Result_dado;
+                $result_dados->id_resultados = $reg;
+                $result_dados->id_pergunta = $perguntas_id[$i];
+                $result_dados->resposta = $dado;
+                $result_dados->save();
             }
             $i ++;
         }
-        echo 'EXCLUIR COMENTÁRIOS, DESCOMENTAR AS LINHAS 53 E 54 E FAZER O REDIRECIONAMENTO';
-        //return redirect('conclusao_pesquisa');
-
-        /* for ($i = 0; $i <= count($perguntas_id); $i++) {
-            echo $dados[$i];
-        } */
-
-        /*
-        <b>id_resultados</b> - A qual parcipante pertence, <br>
-        <b>id_pergunta</b> - Identificação da Pergunta <br>
-        <b>Resposta</b> - Resposta do participante <br>        
-        */
-        
-        //foreach($dados as $dado){ 
-            //dd($dado);           
-            /* $result_dados = new Result_dado;
-            $result_dados->id_resultados = $reg; */
-            //$result_dados->id_pergunta = array_search ($dado, $dados);
-
-            /* $result_dados->id_pergunta = $dado->id_pergunta;
-            //$result_dados->resposta = $dado;
-            $result_dados->resposta = 'Aqui é um ARRAY';
-
-            $result_dados->save(); */
-        //}        
+        return redirect('conclusao_pesquisa');       
     }
 
     public function conclusao_pesquisa()
