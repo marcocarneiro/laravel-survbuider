@@ -175,13 +175,19 @@ class PesquisaAdmController extends Controller
 
     public function resultados(int $id_pesquisa, int $metadados = null)
     {
-        $resultados = Resultado::where('id_pesquisa', $id_pesquisa)->get();
         $pesquisa = Pesquisa::where('id', $id_pesquisa)->first();
+        $resultados = Resultado::where('id_pesquisa', $id_pesquisa)->first();
+        $result_dados = Result_dado::where('id_resultados', $resultados->id)->get();
+        $txt_perguntas = Pergunta::where('id_pesquisa', $pesquisa->id)->get();
 
         $parametros = [
-            'resultados'=> $resultados,
             'pesquisa' => $pesquisa,
+            'resultados'=> $resultados,
+            'result_dados'=> $result_dados,
+            'txt_perguntas'=> $txt_perguntas,
         ];
+
+        //dd($pesquisa, $resultados, $result_dados, $txt_perguntas);
 
         //Se o parâmetro opcional $metadados com valor 1 for passado,
         //carrega a VIEW resultfulldata com METADADOS
@@ -189,7 +195,7 @@ class PesquisaAdmController extends Controller
             return view('admin.resultfulldata', $parametros);
         }else{            
             return view('admin.resultado', $parametros);
-        }        
+        }
     }
 
     public function editar(int $id)
